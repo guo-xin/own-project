@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!--缩放比例1，禁止缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>boostrap学习3</title>
+		<link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet"></link>
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="../js/bootstrap-3.3.4.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-8">.col-md-8</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-4">.col-md-4</div>
+				<div class="col-md-4">.col-md-4</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">.col-md-3</div>
+				<div class="col-md-6 col-xs-offset-1">.col-md-6</div>
+				<div class="col-md-3">.col-md-3</div>
+			</div>
+		</div>
+		<!--下拉框样式,根据dropdown加删open类-->
+		<div class="btn-group dropup">
+			<button type="button" class="btn btn-danger">Action</button>
+			<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="caret"></span>
+				<span class="sr-only">Toggle Dropdown</span>
+			</button>
+
+			<!--默认左对齐，添加pull-right或者dropdown-menu-right右对齐-->
+			<ul class="dropdown-menu pull-right" role="menu">
+				<!--章节标题dropdown-header-->
+				<li class="dropdown-header">水果dropdown-header</li>
+				<li><a href="javascript:;">苹果</a></li>
+				<li><a href="javascript:;">梨</a></li>
+				<li><a href="javascript:;">香蕉</a></li>
+				<li><a href="javascript:;">西瓜</a></li>
+				<!--分隔线样式-->
+				<li class="divider"></li>
+				<li class="dropdown-header">主食</li>
+				<li><a href="javascript:;">米饭</a></li>
+				<li><a href="javascript:;">馒头</a></li>
+				<li><a href="javascript:;">面条</a></li>
+				<li class="divider"></li>
+				<li class="dropdown-header">交通</li>
+				<li><a href="javascript:;">高铁</a></li>
+				<li><a href="javascript:;">动车</a></li>
+			</ul>
+		</div>
+		<!--btn-group-vertical垂直显示按钮组,默认btn-group是水平显示,通过btn-group-lg改变大小-->
+		<div class="btn-group-vertical btn-group-lg col-xs-2">
+			<button class="btn btn-default" type="button">
+				<span class="glyphicon glyphicon-ok" hicon-ok</span>可以
+			</button>
+			<button class="btn btn-primary" type="button">
+				<span class="glyphicon glyphicon-download" hicon-ok</span>添加
+			</button>
+			<button class="btn btn-info" type="button">
+				<span class="glyphicon glyphicon-arrow-up" hicon-ok</span>汉字
+			</button>
+			<button class="btn btn-warning" type="button">
+				<span class="glyphicon glyphicon-zoom-in" hicon-ok</span>内容
+			</button>
+			<button class="btn btn-success" type="button">前面
+				<span class="glyphicon glyphicon-zoom-out" hicon-ok</span>
+			</button>
+			<button class="btn btn-success" type="button">
+				<span class="glyphicon glyphicon-search" hicon-ok</span>后面
+			</button>
+			<div class="btn-group">
+				<div class="dropup">
+					<button class="btn btn-danger dropdown-toggle btn-block active" type="button" data-toggle="dropdown">
+						选择你喜欢的水果<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right" role="menu">
+						<!--章节标题dropdown-header-->
+						<li class="dropdown-header">水果dropdown-header</li>
+						<li><a href="javascript:;">苹果</a></li>
+						<li><a href="javascript:;">梨</a></li>
+						<li><a href="javascript:;">香蕉</a></li>
+						<li><a href="javascript:;">西瓜</a></li>
+						<!--分隔线样式-->
+						<li class="divider"></li>
+						<li class="dropdown-header">主食</li>
+						<li><a href="javascript:;">米饭</a></li>
+						<li><a href="javascript:;">馒头</a></li>
+						<li><a href="javascript:;">面条</a></li>
+						<li class="divider"></li>
+						<li class="dropdown-header">交通</li>
+						<li><a href="javascript:;">高铁</a></li>
+						<li><a href="javascript:;">动车</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--可以少写一层div,将btn-group与dropup写在一起-->
+		<div class="col-xs-2">
+			<div class="btn-group dropup">
+				<button class="btn btn-warning dropdown-toggle btn-block" type="button" data-toggle="dropdown">
+					按钮上拉菜单项<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right" role="menu">
+					<li class=""><a class="" href="javascript:;">按钮上拉菜单项</a></li>
+					<li class=""><a class="" href="javascript:;">按钮上拉菜单项</a></li>
+					<li class=""><a class="" href="javascript:;">按钮上拉菜单项</a></li>
+					<li class=""><a class="" href="javascript:;">按钮上拉菜单项</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--通过btn-group-lg改变大小,btn-group-justified按钮等分宽度,用a标签-->
+		<div class="btn-group col-xs-10">
+			<div class="btn-group btn-group-justified btn-group-xs">
+				<a class="btn btn-success" href="javascript:;">
+					<span class="glyphicon glyphicon-ok"></span>
+				</a>
+				<a class="btn btn-primary active" href="javascript:;">
+					<span class="glyphicon glyphicon-step-forward"></span>
+				</a>
+				<a class="btn btn-warning" href="javascript:;">案例分析</a>
+				<a class="btn btn-info" href="javascript:;" disabled>联系我们</a>
+				<div class="btn-group">
+					<div class="dropdown">
+						<button class="btn btn-danger dropdown-toggle btn-block active" type="button" data-toggle="dropdown">
+							选择你喜欢的水果<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu">
+							<!--章节标题dropdown-header-->
+							<li class="dropdown-header">水果dropdown-header</li>
+							<li><a href="javascript:;">苹果</a></li>
+							<li><a href="javascript:;">梨</a></li>
+							<li><a href="javascript:;">香蕉</a></li>
+							<li><a href="javascript:;">西瓜</a></li>
+							<!--分隔线样式-->
+							<li class="divider"></li>
+							<li class="dropdown-header">主食</li>
+							<li><a href="javascript:;">米饭</a></li>
+							<li><a href="javascript:;">馒头</a></li>
+							<li><a href="javascript:;">面条</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">交通</li>
+							<li><a href="javascript:;">高铁</a></li>
+							<li><a href="javascript:;">动车</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--通过btn-group-lg改变大小,btn-group-justified按钮等分宽度,用button标签则每个button必须在类名为btn-group包裹下-->
+		<div class="btn-group col-xs-10">
+			<div class="btn-group btn-group-justified btn-group-xs">
+				<div class="btn-group">
+					<button class="btn btn-success" href="javascript:;">汉字
+						<span class="glyphicon glyphicon-ok"></span>
+					</button>
+				</div>
+				<div class="btn-group">
+					<button class="btn btn-default active" href="javascript:;">内容
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</div>
+				<a class="btn btn-warning" href="javascript:;" role="button">案例分析</a>
+				<a class="btn btn-info" href="javascript:;" role="button">联系我们</a>
+				<div class="btn-group">
+					<div class="dropdown">
+						<button class="btn btn-danger dropdown-toggle btn-block active" type="button" data-toggle="dropdown">
+							选择你喜欢的水果<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu">
+							<!--章节标题dropdown-header-->
+							<li class="dropdown-header">水果dropdown-header</li>
+							<li><a href="javascript:;">苹果</a></li>
+							<li><a href="javascript:;">梨</a></li>
+							<li><a href="javascript:;">香蕉</a></li>
+							<li><a href="javascript:;">西瓜</a></li>
+							<!--分隔线样式-->
+							<li class="divider"></li>
+							<li class="dropdown-header">主食</li>
+							<li><a href="javascript:;">米饭</a></li>
+							<li><a href="javascript:;">馒头</a></li>
+							<li><a href="javascript:;">面条</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">交通</li>
+							<li><a href="javascript:;">高铁</a></li>
+							<li><a href="javascript:;">动车</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-10">
+			<!--导航栏普通样式,均匀分布nav-justified-->
+			<ul class="nav nav-tab nav-justified">
+				<li>
+					<a href="javascript:;">导航栏样式</a>
+				</li>
+				<li class="active">
+					<a href="javascript:;">active</a>
+				</li>
+				<li class="disabled">
+					<a href="javascript:;">disabled</a>
+				</li>
+				<li>
+					<a href="javascript:;">默认</a>
+				</li>
+				<li>
+					<a href="javascript:;">一行显示</a>
+				</li>
+			</ul>
+			<br />
+			<!--导航栏胶囊形(pills)导航样式,按钮圆角,均匀分布nav-justified-->
+			<ul class="nav nav-pills nav-justified">
+				<li class="dropdown">
+					<a type="button" class="dropdown-toggle" data-toggle="dropdown">下拉框
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="javascript:;">boostrap</a></li>
+						<li class="nav-divider"></li>
+						<li><a href="javascript:;">jquery</a></li>
+						<li><a href="javascript:;">js</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:;">css</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">圆角导航栏样式</a>
+				</li>
+				<li class="active">
+					<a href="javascript:;">active样式不同</a>
+				</li>
+				<li class="disabled">
+					<a href="javascript:;">disabled</a>
+				</li>
+			</ul>
+			<br />
+			<!--基本导航条,导航栏有背景颜色,固定在页面最上面，不随滚动条移动-->
+			<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="navbar-header">
+					<a href="javascript:;" class="navbar-brand">慕课网</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="javascript:;">网站首页</a></li>
+					<li class="dropdown">
+						<a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle">系列教程<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="dropdown-header">学习模块</li>
+							<li class="divider"></li>
+							<li><a href="javascript:;">CSS3</a></li>
+							<li><a href="javascript:;">JavaScript</a></li>
+							<li class="disabled"><a href="javascript:;">PHP</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">系列教程</a></li>
+					<li><a href="javascript:;">名师介绍</a></li>
+					<li><a href="javascript:;">成功案例</a></li>
+					<li><a href="javascript:;">系列教程</a></li>
+					<li><a href="javascript:;">名师介绍</a></li>
+					<li><a href="javascript:;">成功案例</a></li>
+					<li class="disabled"><a href="javascript:;">关于我们</a></li>
+				</ul>
+				<!--靠左navbar-left-->
+				<form class="navbar-form navbar-left">
+					<div class="form-group form-group-lg">
+						<input type="text" class="form-control" placeholder="请输入关键字" />
+					</div>
+					<button type="submit" class="btn btn-primary">搜索</button>
+				</form>
+			</div>
+			<!--导航栏竖直显示导航样式-->
+			<ul class="nav nav-stacked">
+				<li>
+					<a href="javascript:;">竖直显示导航栏样式</a>
+				</li>
+				<!--分隔线,nav-divider-->
+				<li class="nav-divider"></li>
+				<li class="active">
+					<a href="javascript:;">active样式不同</a>
+				</li>
+				<li class="disabled">
+					<a href="javascript:;">disabled</a>
+				</li>
+				<li>
+					<a href="javascript:;">默认</a>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					dataType: 'script', //发送数据格式
+					type: 'post',
+					//http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=4&city=%E5%8C%97%E4%BA%AC&dfc=3
+					url: 'http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city=&dfc=3&charset=utf-8', //直接发向这个地址
+					success: function() {
+						console.log(window.SWther);
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,76 @@
+<ion-view view-title="商品详情">
+  <ion-content class="padding">
+    <div class="head-title">
+      <span class="left-mark"></span>
+      <span class="fb">{{dishName}}</span>
+      <span class="fr">
+        <strong>主厨</strong>
+        {{dishDetail.cook}}
+      </span>
+    </div>
+    <div>
+      <img ng-src="{{dishDetail.picture}}" class="w">
+    </div>
+    <div class="bb1-393 pb5">
+      <i class="icon ion-social-yen dp-ib vm"></i>
+      <span class="f20 c-red dp-ib vm">{{dishDetail.discount}}</span>
+      <span class="dp-ib vm">/份</span>
+      <div class="fr lh28">
+        <span class="mr5 c-393">
+          <i class="icon icon-smile"></i>
+          {{dishDetail.good}}
+        </span>
+        <span class="mr5 c-f60">
+          <i class="icon icon-neutral"></i>
+          {{dishDetail.medium}}
+        </span>
+        <span class="c-666">
+          <i class="icon icon-sad"></i>
+          {{dishDetail.sad}}
+        </span>
+      </div>
+    </div>
+    <div>
+      <div class="fb pt5 pb5">食材</div>
+      <span>{{dishDetail.ingredients}}</span>
+    </div>
+    <div class="pb5 bb1-393">
+      <div class="fb pt5 pb5">特色</div>
+      <span>{{dishDetail.feature}}</span>
+    </div>
+    <div class="pt5 pb5">
+      <div class="tc">
+        <div class="pa lh30" style="left: 0">数量</div>
+        <div ng-if="dishDetail.total" class="row auto p0 ml40">
+          <div class="col col-10 bc-ddd" ng-click="addDish()">
+            <i class="icon ion-plus c-333"></i>
+          </div>
+          <div class="col col-20 b1-ddd">
+            <span>{{dishDetail.count}}</span>
+          </div>
+          <div class="col col-10 bc-ddd" ng-click="minusDish()">
+            <i class="icon ion-minus c-333"></i>
+          </div>
+          <div class="col col-30 tl">剩余数量({{dishDetail.total}})</div>
+        </div>
+        <div ng-if="!dishDetail.total">
+          <div class="c-red">已售完</div>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item blw0 brw0" ng-class="{'btw0':!$index}" ng-repeat="item in commentList">
+        <span class="fb">{{item.name}}</span>
+        <i class="icon" ng-class="{'icon-smile c-393':item.type == 1,
+        'icon-neutral c-f60':item.type == 2,'icon-sad c-666':item.type == 3}"></i>
+        <span class="fr f14">{{item.date|date:'MM.dd'}}</span>
+        <div class="ws-n">{{item.text}}</div>
+      </div>
+    </div>
+    <div ng-show='commentPage.length > 1' class="row">
+      <button class="button button-small col p0 icon ion-arrow-left-c brw0" ng-click="selectPage(0)"></button>
+      <button class="button button-small col p0 brw0" ng-repeat="item in commentPage" ng-click="selectPage($index)">{{$index+1}}</button>
+      <button class="button button-small col p0 icon ion-arrow-right-c" ng-click="selectPage(commentPage.length - 1)"></button>
+    </div>
+  </ion-content>
+</ion-view>

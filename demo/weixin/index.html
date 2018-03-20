@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+		<script src="js/sha1.js" type="text/javascript"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<button type="button" id="weixin">调用微信扫一扫</button>
+		<script type="text/javascript">
+			$(function() {
+				//app_id:wx4c2ffbd8f53154a5,secret:543a48759b3d7e3eece43d5f4e9fa04c;
+				$("#weixin").click(function() {
+					//http://www.cnblogs.com/txw1958/p/weixin-js.html
+					//https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi
+					//http://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=ACCESS_TOKEN
+					$.ajax({
+						dataType: 'json', //发送数据格式
+						type: 'get',
+						//http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=4&city=%E5%8C%97%E4%BA%AC&dfc=3
+						url: 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=kq-TK_zDxONfn2NoGYAgjyvcbPvADJaTZvSZ-FetQMpPSdE9R5QAcYKq0XOye_DLD6MCjdos7dpWhIT2p4YBBe1VL870ux88cNkNP0ooLt8QJQcABAUNU&type=jsapi', //直接发向这个地址
+						success: function(data) {
+							ticket = data.ticket;
+							localStorage.ticket = ticket;
+						}
+					});
+					ticket = localStorage.ticket;
+					noncestr = Math.random().toString(36).substr(2, 15);
+					timestamp = parseInt(new Date().getTime() / 1000) + '';
+					console.log(timestamp);
+					var string1 = "jsapi_ticket=" + ticket + "&noncestr="+noncestr+"&timestamp="+timestamp+"&url=http://ezcharting.cn/";
+					signature = hex_sha1(string1);
+					console.log(signature);
+					wx.config({
+						debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId: 'wx4c2ffbd8f53154a5', // 必填，公众号的唯一标识
+						timestamp: timestamp, // 必填，生成签名的时间戳
+						nonceStr: noncestr, // 必填，生成签名的随机串
+						signature: signature, // 必填，签名，见附录1
+						jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
+					wx.ready(function() {
+						wx.checkJsApi({
+						jsApiList: ['scanQRCode'],
+						success: function(res) {
+							alert(checkResult);
+						},
+						fail: function(res) {
+							alert(333);
+						}
+					});
+						// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+					});
+					wx.error(function(res) {
+						alert(res.errMsg);
+						// config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+					});
+					/*wx.checkJsApi({
+								jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+								success: function(res) {
+									alert(res);
+									// 以键值对的形式返回，可用的api值true，不可用为false
+									// 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+									}
+								});*/
+					//微信扫一扫 调起微信扫一扫接口 
+					wx.scanQRCode({
+						desc: 'scanQRCode desc',
+						needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+						scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+						success: function() {
+							var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+							alert(2);
+						}
+					});
+				})
+			})
+		</script>
+	</body>
+
+</html>

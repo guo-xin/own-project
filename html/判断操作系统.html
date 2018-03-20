@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>JS判断当前浏览者的操作系统userAgent</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//JS判断当前浏览者的操作系统userAgent
+			function validataOS() {
+				if (navigator.userAgent.indexOf("Window") > 0) {
+					return "Windows";
+				} else if (navigator.userAgent.indexOf("Mac OS X") > 0) {
+					return "Mac";
+				} else if (navigator.userAgent.indexOf("Linux") > 0) {
+					return "Linux";
+				} else {
+					return "other";
+				}
+			}
+			document.writeln("您的操作系统是：" + validataOS()+"<br />");
+			//判断操作系统platform
+			function detectOS() {
+				var sUserAgent = navigator.userAgent;
+				var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+				var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+				if (isMac) return "Mac";
+				var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
+				if (isUnix) return "Unix";
+				var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
+				if (isLinux) return "Linux";
+				//更详细的windows版本
+				if (isWin) {
+					var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+					if (isWin2K) return "Win2000";
+					var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
+					if (isWinXP) return "WinXP";
+					var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+					if (isWin2003) return "Win2003";
+					var isWinVista = sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
+					if (isWinVista) return "WinVista";
+					var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+					if (isWin7) return "Win7";
+					var isWin7 = sUserAgent.indexOf("Windows NT 6.2") > -1 || sUserAgent.indexOf("Windows NT 6.3") > -1;
+					if (isWin7) return "Win8";
+					var isWin7 = sUserAgent.indexOf("Windows NT 10.0") > -1;
+					if (isWin7) return "Win10";
+				}
+				return "other";
+			}
+			document.writeln("您的操作系统及版本是：" + detectOS());
+			//判断浏览器类型
+			var bw = function() {
+				var UserAgent = navigator.userAgent.toLowerCase();
+				return {
+					isUc: /ucweb/.test(UserAgent), // UC浏览器
+					isChrome: /chrome/.test(UserAgent.substr(-33, 6)), // Chrome浏览器
+					isFirefox: /firefox/.test(UserAgent), // 火狐浏览器
+					isOpera: /opera/.test(UserAgent), // Opera浏览器
+					isSafire: /safari/.test(UserAgent) && !/chrome/.test(UserAgent), // safire浏览器
+					is360: /360se/.test(UserAgent), // 360浏览器
+					isBaidu: /bidubrowser/.test(UserAgent), // 百度浏览器
+					isSougou: /metasr/.test(UserAgent), // 搜狗浏览器
+					isIE6: /msie 6.0/.test(UserAgent), // IE6
+					isIE7: /msie 7.0/.test(UserAgent), // IE7
+					isIE8: /msie 8.0/.test(UserAgent), // IE8
+					isIE9: /msie 9.0/.test(UserAgent), // IE9
+					isIE10: /msie 10.0/.test(UserAgent), // IE10
+					isIE11: /msie 11.0/.test(UserAgent), // IE11
+					isLB: /lbbrowser/.test(UserAgent), // 猎豹浏览器
+					　　　　isWX: /micromessenger/.test(UserAgent), // 微信内置浏览器
+					isQQ: /qqbrowser/.test(UserAgent) // QQ浏览器
+				};
+			}();
+			if (bw.isUc) {
+				document.writeln("您的浏览器是：" + "UC");
+			} else if (bw.isChrome) {
+				document.writeln("您的浏览器是：" + "Chorme");
+			} else if (bw.isFirefox) {
+				document.writeln("您的浏览器是：" + "Firefox");
+			} else if (bw.isOpera) {
+				document.writeln("您的浏览器是：" + "Oper");
+			} else if (bw.isSafire) {
+				document.writeln("您的浏览器是：" + "Safire");
+			} else if (bw.is360) {
+				document.writeln("您的浏览器是：" + "360");
+			} else if (bw.isBaidu) {
+				document.writeln("您的浏览器是：" + "Baidu");
+			} else if (bw.isSougou) {
+				document.writeln("您的浏览器是：" + "Sougou");
+			} else if (bw.isLB) {
+				document.writeln("您的浏览器是：" + "猎豹");
+			} else if (bw.isQQ) {
+				document.writeln("您的浏览器是：" + "QQ");
+			} else if (bw.isIE6) {
+				document.writeln("您的浏览器是：" + "IE6");
+			} else if (bw.isIE7) {
+				document.writeln("您的浏览器是：" + "IE7");
+			} else if (bw.isIE8) {
+				document.writeln("您的浏览器是：" + "IE8");
+			} else if (bw.isIE9) {
+				document.writeln("您的浏览器是：" + "IE9");
+			} else if (bw.isIE10) {
+				document.writeln("您的浏览器是：" + "IE10");
+			} else if (bw.isIE11) {
+				document.writeln("您的浏览器是：" + "IE11");
+			} else {
+				document.writeln("您的浏览器是：" + "其他");
+			}
+			//判断是移动端还是pc端
+			function checkStation() {
+				var info = navigator.userAgent;
+				if (info.indexOf("iPod") !== -1 || info.indexOf("iPad") !== -1 || info.indexOf("iPhone") !== -1 || info.indexOf("Android") !== -1) {
+					alert("移动端");
+				} else {
+					alert("pc端");
+				}
+			}
+			checkStation();
+			//document.writeln("您的浏览器是：" + bw());
+			var c = ("ssacabaqqasassdsdsd").split(["a",[3]]);
+			console.log(c);
+			
+		</script>
+	</body>
+
+</html>

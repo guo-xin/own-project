@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--缩放比例1，禁止缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="content-type" type="text/html" charset="utf-8" />
+		<title>报告页面</title>
+		<link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="../css/report.css" type="text/css" rel="stylesheet" />
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="../js/bootstrap-3.3.4.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div>
+			<div class="col-xs-2 form-horizontal" style="border: solid 1px #ebebeb;height: 100%;overflow:auto;">
+				<p class="col-xs-offset-4 col-xs-8"><strong>配置</strong></p>
+				<div class="form-group">
+					<label class="col-xs-4 control-label">数据</label>
+					<div class="col-xs-8">
+						<select class="form-control">
+							<option>22</option>
+							<option>22</option>
+							<option>22</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-4 control-label">图型</label>
+					<div class="col-xs-8">
+						<select class="form-control">
+							<option>22</option>
+							<option>22</option>
+							<option>22</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-4 control-label">变量</label>
+					<div class="col-xs-8">
+						<select class="form-control">
+							<option>22</option>
+							<option>22</option>
+							<option>22</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-4 control-label">模板</label>
+					<div class="col-xs-8">
+						<select class="form-control">
+							<option>22</option>
+							<option>22</option>
+							<option>22</option>
+						</select>
+					</div>
+				</div>
+				<div class="btn btn-group col-xs-offset-3 col-xs-6">
+					<button class="btn btn-primary btn-block" type="button">查看</button>
+				</div>
+			</div>
+			<div class="col-xs-8" style="border: solid 1px #ebebeb;height:100%;overflow: auto;">
+				<button class="btn btn-primary" type="button" style="margin-left:50px;" data-toggle="modal" data-target="#editStatusModal">新建</button>
+				<button class="btn btn-primary" type="button" style="margin-left:50px;" data-toggle="modal" data-target="#editStatusModal">文本</button>
+				<button class="btn btn-primary" type="button" style="margin-left:50px;" data-toggle="modal" data-target="#editColorModal">颜色</button>
+				<button class="btn btn-primary" type="button" style="margin-left:50px;" data-toggle="modal" data-target="#editImgModal">图形</button>
+				<div class="form-horizontal" style="padding:10px 15px 0px;">
+					<div class="form-group">
+						<input class="form-control" type="text" />
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" />
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" />
+					</div>
+					<div class="form-group form-group-lg has-error">
+						<label class="col-xs-2 control-label"><b>控件变大</b></label>
+						<div class="col-xs-10">
+							<input type="text" class="form-control" placeholder="form-group-lg控件变大" />
+						</div>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-striped">
+							<thead>
+								<tr class="info">
+									<th>Button</th>
+									<th>Class</th>
+									<th>内容</th>
+									<th>表格标题</th>
+									<th>表格标题</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="active">
+									<td>
+										<button class="btn btn-lg">default</button>
+									</td>
+									<td><code>btn btn-lg</code></td>
+									<td>默认样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="danger">
+									<td>
+										<button class="btn btn-primary btn-sm">primary</button>
+									</td>
+									<td><code>btn btn-primary btn-sm</code></td>
+									<td>强调样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="warning">
+									<td>
+										<button class="btn btn-danger col-xs-8">danger</button>
+									</td>
+									<td><code>btn btn-danger col-xs-8</code></td>
+									<td>危险样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="success">
+									<td>
+										<button class="btn btn-warning btn-block">warning</button>
+									</td>
+									<td><code>btn btn-warning btn-block</code></td>
+									<td>警告</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="script">
+									<td>
+										<button class="btn btn-info">info</button>
+									</td>
+									<td><code>btn btn-info</code></td>
+									<td>通知样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-striped">
+							<thead>
+								<tr class="info">
+									<th>Button</th>
+									<th>Class</th>
+									<th>内容</th>
+									<th>表格标题</th>
+									<th>表格标题</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="active">
+									<td>
+										<button class="btn btn-lg">default</button>
+									</td>
+									<td><code>btn btn-lg</code></td>
+									<td>默认样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="danger">
+									<td>
+										<button class="btn btn-primary btn-sm">primary</button>
+									</td>
+									<td><code>btn btn-primary btn-sm</code></td>
+									<td>强调样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="warning">
+									<td>
+										<button class="btn btn-danger col-xs-8">danger</button>
+									</td>
+									<td><code>btn btn-danger col-xs-8</code></td>
+									<td>危险样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="success">
+									<td>
+										<button class="btn btn-warning btn-block">warning</button>
+									</td>
+									<td><code>btn btn-warning btn-block</code></td>
+									<td>警告</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+								<tr class="script">
+									<td>
+										<button class="btn btn-info">info</button>
+									</td>
+									<td><code>btn btn-info</code></td>
+									<td>通知样式</td>
+									<td>表格单元格</td>
+									<td>表格单元格</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="btn btn-group col-xs-offset-5 col-xs-2">
+					<button class="btn btn-primary btn-block">保存</button>
+				</div>
+			</div>
+			<div class="modal fade" id="editStatusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4>文本</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="cause-text" class="control-label">内容:</label>
+								<textarea class="form-control" id="cause-text" rows="3" name="endingRemark"></textarea>
+							</div>
+							<div class="form-horizontal">
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">状态:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">编号:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-horizontal">
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">字体:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">大小:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-horizontal">
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">颜色:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">对齐:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-horizontal">
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">左边界:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group col-xs-6 dialog-padding">
+									<label class="control-label col-xs-4">右边界:</label>
+									<div class="col-xs-8">
+										<select class="form-control" name="endingAttribute">
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+											<option>222</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" onclick="submitPage()">保存</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="editColorModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="statusModalLabel">样本状态</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="status-name" class="control-label">状态:</label>
+							<select class="form-control" id="status-name" name="endingAttribute">
+								<option>222</option>
+								<option>222</option>
+								<option>222</option>
+								<option>222</option>
+								<option>222</option>
+								<option>222</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="cause-text" class="control-label">原因:</label>
+							<textarea class="form-control" id="cause-text" rows="3" style="width: 100%;" name="endingRemark"></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="submitPage()">保存</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="col-xs-2 report-right">
+				<ul class="list-unstyled list-border">
+					<li>
+						<a href="javascript:;"><img src="../img/image1.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image1.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image1.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image1.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image1.jpg" alt="ppt" /></a>
+					</li>
+					<li>
+						<a href="javascript:;"><img src="../img/image.jpg" alt="ppt" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="big-img">
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			if (document.documentElement.clientHeight !== 0) {
+				var height = document.documentElement.clientHeight;
+			} else {
+				var height = document.body.clientHeight;
+			}
+			$("body>div").css("height", height);
+			$(".list-border>li").mouseenter(function() {
+				var a = $(this).find("a").clone();
+				a.appendTo($(".big-img"));
+				var top = $(this).offset().top - 30 > 0 ? $(this).offset().top - 30 : 0;
+				if ($(this).offset().top + 375 < height) {
+					$(".big-img").css({
+						"top": top,
+						"right": $(".report-right").width() + 15
+					}).show();
+				} else {
+					$(".big-img").css({
+						"top": height - 405,
+						"right": $(".report-right").width() + 15
+					}).show();
+				}
+			}).mouseleave(function() {
+				$(".big-img").empty().hide();
+			})
+		})
+	</script>
+
+</html>

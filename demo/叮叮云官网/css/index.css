@@ -1,0 +1,532 @@
+body {
+	font-size: 14px;
+	text-decoration: none;
+	font-family: "微软雅黑";
+	text-align: center;
+	color: #333;
+	margin: auto;
+}
+
+* {
+	webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.s1 {
+	height: 0px;
+	clear: both;
+}
+
+.top p,
+.first p,
+.text p {
+	font-size: 36px;
+	line-height: 48px;
+	margin: 10px auto;
+	font-weight: 400;
+}
+
+h3 {
+	color: #999;
+	margin: 20px auto;
+}
+
+h4,
+h5 {
+	margin: 0px auto;
+}
+
+h4 {
+	font-size: 24px;
+	line-height: 1.5;
+	font-weight: 400;
+}
+
+h3,
+h5 {
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: 400;
+}
+
+h6 {
+	font-size: 14px;
+	margin: 5px auto;
+	font-weight: 400;
+}
+
+.bg {
+	background: #f0f8fb;
+}
+
+a:hover,
+a:link,
+a:focus {
+	border: none;
+	outline: none;
+	text-decoration: none;
+}
+
+
+/*顶部导航*/
+
+.header {
+	height: 50px;
+	position: fixed;
+	background: #fff;
+	top: 0;
+	z-index: 100;
+	text-align: center;
+	width: 100%;
+	box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+	padding: 0 5%;
+}
+
+.icon {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
+
+.icon a {
+	height: 40px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.icon img {
+	height: 100%;
+}
+
+.nav {
+	float: right;
+}
+
+.button {
+	display: none;
+}
+
+.nav ul {
+	list-style: none;
+	margin: 0;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+}
+
+.nav li {
+	float: left;
+	font-size: 16px;
+	color: #aaaab4;
+	padding-right: 30px;
+}
+
+.nav li a {
+	color: #818286;
+	text-align: center;
+}
+
+.nav a:hover,
+.nav .on {
+	color: #37C2D9;
+}
+
+
+/*关爱云*/
+
+.care {
+	background: url(../image/care.jpg) no-repeat center bottom;
+	padding: 0;
+	color: #fff;
+	margin: 0;
+	padding-bottom: 15%;
+}
+
+.care .left {
+	width: 100%;
+	padding-top: 15%;
+}
+
+.care .right {
+	width: 100%;
+	padding-top: 15%;
+}
+
+.care p {
+	font-size: 48px;
+	line-height: 48px;
+	margin: 30px auto;
+}
+
+.care img {
+	max-width: 100%;
+}
+
+
+/*功能介绍*/
+
+.function {
+	width: 100%;
+	margin-top: 15%;
+}
+
+.interview {
+	width: 50%;
+	float: left;
+	margin-bottom: 50px;
+	padding: 0 10px;
+}
+
+.interview h4 {
+	margin: 30px 0;
+}
+
+.interview img {
+	width: 60%;
+}
+
+
+/*钉钉药盒*/
+
+.box {
+	padding-bottom: 25%;
+	padding-top: 15%;
+}
+
+.top {
+	width: 100%;
+	margin-top: 5%;
+	text-align: left;
+	padding: 0 20px;
+}
+
+.bottom img {
+	width: 80%;
+}
+
+
+/*SDK*/
+
+.sdk {
+	padding-bottom: 25%;
+	padding-top: 15%;
+}
+
+
+/*药品信息查询*/
+
+.search {
+	padding-top: 15%;
+}
+
+
+/*助力医药研究*/
+
+.research {
+	padding-top: 15%;
+}
+
+.first,
+.text {
+	padding: 0 20px;
+	text-align: left;
+}
+
+
+/*用药跟踪*/
+
+.follow {
+	padding-bottom: 25%;
+	padding-top: 15%;
+}
+
+.footer {
+	text-align: center;
+	color: #999;
+	padding: 10px 0;
+}
+
+.footer img {
+	vertical-align: middle;
+}
+
+@media (max-width:767px) {
+	.top p,
+	.first p,
+	.text p {
+		font-size: 26px;
+	}
+	h4 {
+		font-size: 16px;
+	}
+	h3,
+	h5 {
+		font-size: 14px;
+	}
+	h6 {
+		font-size: 12px;
+	}
+	.nav {
+		width: 90%;
+	}
+	.nav ul {
+		display: none;
+	}
+	.button {
+		display: block;
+		width: 40px;
+		right: 5%;
+		float: right;
+		padding-top: 10px;
+		position: absolute;
+		border-radius: 4px;
+		vertical-align: middle;
+	}
+	.nav .isShow {
+		display: block;
+	}
+	.icon-bar {
+		background: #888;
+		display: block;
+		height: 1px;
+		margin: 8px;
+	}
+	.nav li {
+		background: #fff;
+		padding: 0 20px;
+		float: none;
+	}
+	.nav li {
+		border-top: #ddd 1px solid;
+	}
+	.care p {
+		font-size: 36px;
+		margin: 15px auto;
+	}
+	.interview h4 {
+		margin: 20px 0;
+	}
+	.research img,
+	.follow img {
+		max-width: 100%;
+	}
+	.search img {
+		width: 90%;
+	}
+	.search img,
+	.research img {
+		vertical-align: bottom;
+	}
+	.bottom,
+	.last {
+		margin-top: 18%;
+	}
+}
+
+@media (min-width:768px) {
+	.pict {
+		height: 100%;
+		position: relative;
+	}
+	.pict img {
+		position: absolute;
+		bottom: 0px;
+		max-width: 100%;
+	}
+	.top p,
+	.first p,
+	.text p {
+		font-size: 40px;
+	}
+	.f_left {
+		float: left;
+	}
+	.f_right {
+		float: right;
+	}
+	.header,
+	.care,
+	.function,
+	.box,
+	.sdk,
+	.research,
+	.search,
+	.follow {
+		padding: 0 5%;
+	}
+	.top {
+		width: 55%;
+		margin-top: 2%;
+		text-align: left;
+		padding-left: 40px;
+	}
+	.bottom {
+		width: 45%;
+	}
+	.bottom img {
+		width: 100%;
+	}
+	.bottom.f_right {
+		text-align: left;
+	}
+	.bottom.f_right img {
+		width: 70%;
+	}
+	.s1 {
+		height: 0px;
+		clear: none;
+	}
+	/*关爱云*/
+	.care {
+		height: 600px;
+	}
+	.care .left {
+		width: 35%;
+		text-align: center;
+		padding-top: 23%;
+	}
+	.care .right {
+		width: 65%;
+		padding-top: 180px;
+	}
+	/*功能介绍*/
+	.function {
+		height: 600px;
+		margin: auto;
+	}
+	.interview {
+		width: 25%;
+		float: left;
+		margin: 150px 0;
+	}
+	.interview img {
+		max-width: 180px;
+	}
+	.interview h4 {
+		margin: 30px 0;
+	}
+	/*钉钉药盒*/
+	.box {
+		height: 600px;
+		padding-bottom: 200px;
+		padding-top: 180px;
+	}
+	/*SDK*/
+	.sdk {
+		height: 600px;
+		padding-bottom: 200px;
+		padding-top: 120px;
+	}
+	/*药品信息查询*/
+	.search {
+		height: 800px;
+		padding-top: 80px;
+	}
+	.first {
+		width: 65%;
+		margin-top: 5%;
+		text-align: left;
+		padding-left: 100px;
+	}
+	.last {
+		width: 35%;
+	}
+	/*助力医药研究*/
+	.research {
+		height: 600px;
+		padding-top: 80px;
+	}
+	.text {
+		width: 40%;
+		text-align: left;
+		padding-top: 100px;
+	}
+	.pict {
+		width: 60%;
+		text-align: left;
+		height: 100%;
+		position: relative;
+	}
+	.pict img {
+		position: absolute;
+		bottom: 0px;
+	}
+	/*用药跟踪*/
+	.follow {
+		height: 600px;
+		padding-bottom: 200px;
+		padding-top: 180px;
+	}
+}
+
+@media (min-width:992px) {
+	.care .right {
+		padding-top: 120px;
+	}
+	.care .left {
+		padding-top: 20%;
+	}
+}
+
+@media (min-width:1200px) {
+	.header,
+	.care,
+	.function,
+	.box,
+	.sdk,
+	.research,
+	.search,
+	.follow {
+		padding: 0 10%;
+	}
+	.top {
+		width: 65%;
+		margin-top: 5%;
+		text-align: left;
+		padding-left: 100px;
+	}
+	.bottom {
+		width: 35%;
+	}
+	/*关爱云*/
+	.care {
+		height: 1000px;
+	}
+	.care .right {
+		padding-top: 180px;
+	}
+	/*钉钉药盒*/
+	.box {
+		height: 800px;
+		padding-bottom: 200px;
+		padding-top: 180px;
+	}
+	/*SDK*/
+	.sdk {
+		height: 800px;
+		padding-top: 180px;
+	}
+	/*药品信息查询*/
+	.search {
+		padding-top: 80px;
+	}
+	/*助力医药研究*/
+	.research {
+		height: 800px;
+		padding-top: 80px;
+	}
+	.text {
+		padding-top: 200px;
+	}
+	/*用药跟踪*/
+	.follow {
+		height: 800px;
+		padding-bottom: 200px;
+		padding-top: 180px;
+	}
+}
+
+.care {
+	margin-top: 50px;
+}

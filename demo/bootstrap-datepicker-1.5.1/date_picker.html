@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/service.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datepicker.zh-CN.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<div id="guoxin">
+			<div>
+			</div>
+			<input type="text" class="datepicker-input" value="" />
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		$('#guoxin div').datepicker({
+			todayHighlight: true,
+			language: "zh-CN",
+			todayBtn: "linked",
+			weekStart: 7,
+			toggleActive: true
+		}).on('changeDate', function(e) {
+			$(".datepicker-input").val(e.format('yyyy/mm/dd'));
+			//var d = new Date();
+			//var weekArray = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+			//console.log(d.Format("yyyy年MM月dd日 hh:mm")+weekArray[d.getDay()]+"    "+e.format('yyyy年mm月dd日')+weekArray[(e.date).getDay()]);
+			//console.log("季度:" + Math.floor((e.date.getMonth() + 3) / 3) + "   " + Math.ceil((e.date.getMonth() + 1) / 3));
+		});
+		Date.prototype.Format = function(fmt) {
+			var o = {
+				"M+": this.getMonth() + 1, //月份 
+				"d+": this.getDate(), //日 
+				"h+": this.getHours(), //小时 
+				"m+": this.getMinutes(), //分 
+				"s+": this.getSeconds(), //秒 
+				"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+				"S": this.getMilliseconds() //毫秒 
+			};
+			if(/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for(var k in o)
+				if(new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+			return fmt;
+		}
+	</script>
+
+</html>

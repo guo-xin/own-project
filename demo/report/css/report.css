@@ -1,0 +1,54 @@
+body,
+body>div {
+	overflow: hidden;
+}
+
+.report-right {
+	position: relative;
+	border: 1px solid #ebebeb;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.list-border li {
+	border: 2px solid #ddd;
+}
+
+.list-border li:hover {
+	border: 1px solid #ddd;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+}
+
+.list-border img {
+	width: 100%;
+}
+
+.big-img {
+	position: absolute;
+	display: none;
+}
+
+.big-img img {
+	height: 400px;
+	border: 1px solid #bfbfbf;
+	border-radius: 4px;
+}
+
+.configure {
+	border: solid 1px #ebebeb;
+	height: 100%;
+	overflow: auto;
+}
+
+.dialog-padding {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.report-span {
+	width: 4.16666%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+}

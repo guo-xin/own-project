@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+<button data-event="test">open dialog</button>
+<div class="guo"><input/></div>
+<script src="../lib/sea.js"></script>
+<script>
+seajs.config({
+  alias: {
+    "jquery": "jquery-1.10.2.js"
+  }
+});
+</script>
+
+<script>
+seajs.use(['jquery', '../src/dialog-plus'], function ($, dialog) {
+
+
+	$('button[data-event=test]').on('click', function () {
+		var d = dialog({
+			title: '请填写表达式！',
+			content:'<input autofocus />',
+			okValue: '确 定',
+			ok: function () {
+				var dia = $(".ui-dialog-content").find("input").val();
+				$(".guo").find("input").attr("value",dia);
+				
+			},
+			cancelValue: '取消',
+			cancel: function () {}
+		});
+
+		d.showModal();
+	});
+
+});
+</script>
+</body>
+</html>

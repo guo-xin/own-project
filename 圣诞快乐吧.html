@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+		<title>nodeType</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="img-wrap"></div>
+			<div class="title-wrap">
+				<div class="title">圣诞快乐吧</div>
+			</div>
+			<div class="text-warp">
+				<div>这个有描述啦～</div>
+			</div>
+		</header>
+		<div class="rich_media_area_primary" contenteditable="false" data="1">
+			<div class="rich_media_content" contenteditable="false">
+				<p></p>
+				<p>这个：</p>
+				<section class="link-box" data="http://u.pre.liveapp.com.cn/66661" onmouseenter="enableEditliveappShareLink()" onmouseleave="disableEditLiveappShareLink()" contenteditable="false" style=""><img src="./圣诞快乐吧_files/13a5c4aef95e60c9e5bdafac1d97_14509380203688_682289.jpg">
+					<div class="title"><span class="span">v3.0模板002</span></div>
+					<div class="desc"><span class="span">哈哈哈</span></div>
+					<div class="link-btn" data="66661"></div>
+				</section>
+				<p>：那个</p>
+			</div>
+		</div>
+		<p>
+			<br>
+		</p>
+		<!-- [template_content_end] -->
+		<!-- article content end -->
+
+		<!-- share footer -->
+
+		<!-- share footer end -->
+		<div class="tips-wrap off">
+			<div class="img"></div>
+		</div>
+		<iframe id="ajax-form" name="ajax-form" src="" style="display:none;"></iframe>
+
+		<script type="text/javascript">
+			var host = "http://121.41.30.120:8080/api";
+			var albumId = "4";
+			var ua = navigator.userAgent;
+			var isIphone = ua.match(/iPhone|iPad/i) != null;
+			var isAndroid = ua.match(/Android/i) != null;
+			var isWX = ua.match(/MicroMessenger/i) != null;
+			
+			function initContent() {
+				var content = document.getElementsByClassName("rich_media_content");
+				for(var i=0; i<content.length; i++) {
+					if(content[i]) content[i].setAttribute('contenteditable', false);
+				}
+			}
+			// 是否在app打开
+			function isApp() {
+				if(isAndroid) {
+					 if(typeof(liveAppJSBridge) != "undefined" ) {
+						return liveAppJSBridge.isLiveapp() > 0; 
+					 }
+					 return false;
+				}
+				return typeof(liveapp) != "undefined";
+			}
+			function hasWeixin() {
+				if(isAndroid) {
+					 if(typeof(liveAppJSBridge) != "undefined" ) {
+						return liveAppJSBridge.isWechatInstalled() > 0; 
+					 }
+					 return false;
+				}
+				return typeof(weixin) != "undefined";
+			}
+			function hasPyq() {
+				if(isAndroid) {
+					 if(typeof(liveAppJSBridge) != "undefined" ) {
+						return liveAppJSBridge.isWechatInstalled() > 0; 
+					 }
+					 return false;
+				}
+				return typeof(pyq) != "undefined";
+			}
+			function hasQQ() {
+				if(isAndroid) {
+					 if(typeof(liveAppJSBridge) != "undefined" ) {
+						return liveAppJSBridge.isQQInstalled() > 0; 
+					 }
+					 return false;
+				}
+				return typeof(qq) != "undefined";
+			}
+			function hasSina() {
+				if(isAndroid) {
+					 if(typeof(liveAppJSBridge) != "undefined" ) {
+						return liveAppJSBridge.isSinaInstalled() > 0; 
+					 }
+					 return false;
+				}
+				return typeof(sina) != "undefined";
+			}
+			// 上报
+			function report() {
+				if(!host || !albumId) return;
+				var iFrame;
+				var type = 0;// 非app
+				if(isApp()) {
+					type = isIphone ? 1 : 2;
+				}
+				var urlString = host + "/liveapp/v3/album/addpageview/" + albumId + "/" + type;
+				$.ajax({  
+					type:"GET",  
+					url:urlString,  
+					dataType:"jsonp",  
+					success: function(msg){}
+				});
+			}
+			// 分享
+			function shareAlbum(channel) {   
+				if (isApp()) {
+		            launchLiveApp("liveapp:///album/" + albumId + "/share/" + channel);
+		        }
+			}
+			// 模版展示
+			function showTemplate() {
+				var href = this.getAttribute("data");
+				if(isApp()) {
+					var cd = this.children;
+					for(var i=0; i<cd.length; i++) {
+						if(cd[i].getAttribute('class') == 'link-btn') {
+							var id = cd[i].getAttribute('data');
+							href = 'liveapp:///template/'+id+'/view?url=' + href;
+							location.href = href;
+							return;
+						}
+					}
+					href = 'liveapp:///template/-1/view?url=' + href;
+					location.href = href;
+				} else {
+					if(href && href.indexOf("http://")==0) location.href = href;
+				}
+			}
+			// 提示在原装浏览器中打开
+			function showTips() {
+				var tips = document.getElementsByClassName("tips-wrap");
+				if(tips.length==1) {
+					if($(tips[0]).hasClass('off')) {
+						$(tips[0]).removeClass('off');
+						$(tips[0]).addClass('on');
+						if(isAndroid) {
+							$(tips[0]).addClass('android');
+						}
+						if(isIphone) {
+							$(tips[0]).addClass('ios');
+						}
+					}
+				}
+			}
+		    // 编辑模版
+		    function editTemplate(e) {
+		    	e = e || window.event;
+		    	if(e.stopPropagation) { //W3C阻止冒泡方法  
+					e.stopPropagation();  
+				} else {  
+					e.cancelBubble = true; //IE阻止冒泡方法  
+				}  
+		    	var id = this.getAttribute("data");
+		    	if(!id) return;
+		    	if(isWX) {
+		    		showTips();
+		    		return;
+		    	}
+		    	if(isApp()) {
+					launchLiveApp('liveapp:///template/' + id + '/edit');
+				} else {
+					toEdit(id);
+				}
+		    }
+		 	// 网页中跳转app编辑
+			function toEdit(id) {
+				var u = location.href;
+				var title = encodeURIComponent('圣诞快乐吧');
+				location.href = u.substr(0,u.indexOf('album/') + 'album/'.length) + 'edit.html?id=' + id + '&t=' + title + '&_=' + new Date().getTime();
+			}
+			// app浏览器中跳转app
+			function launchLiveApp(urlString) {
+				var a = document.createElement("a");
+				a.href = urlString;
+				a.target = 'ajax-form';
+				a.style.display = 'none';
+				document.body.appendChild(a);
+				a.click();
+				var t1 = setTimeout(function(){
+					a.parentNode.removeChild(a);
+					clearTimeout(t1);
+				},1000);
+			}
+			
+			function initShare() {
+				// 若非app,清除分享
+				if(!isApp()) {
+					var share = document.getElementById("shareBox");
+					if(share) share.parentNode.removeChild(share);
+					return;
+				}
+				//
+				var wx = document.getElementById("img_weixin");
+				if(hasWeixin()) {
+					wx.onclick = function(){ shareAlbum('weixin');};
+				} else {
+					var attr = wx.getAttribute("class");
+					wx.setAttribute("class", attr + " disable");
+				}
+				//
+				var pyq = document.getElementById("img_pyq");
+				if(hasPyq()) {
+					pyq.onclick = function(){ shareAlbum('pyq');};
+				} else {
+					var attr = pyq.getAttribute("class");
+					pyq.setAttribute("class", attr + " disable");
+				}
+				//
+				var qq = document.getElementById("img_qq");
+				if(hasQQ()) {
+					qq.onclick = function(){ shareAlbum('qq');};
+				} else {
+					var attr = qq.getAttribute("class");
+					qq.setAttribute("class", attr + " disable");
+				}
+				//
+				var sina = document.getElementById("img_sina");
+				if(hasSina()) {
+					sina.onclick = function(){ shareAlbum('sina');};
+				} else {
+					var attr = sina.getAttribute("class");
+					sina.setAttribute("class", attr + " disable");
+				}
+			}
+			
+			function initTmpl() {
+				// 绑定模版浏览事件
+				var linkBoxes = document.getElementsByClassName("link-box");
+				for(var i=0; i<linkBoxes.length;i++) {
+					linkBoxes[i].onclick = null;
+					linkBoxes[i].addEventListener('click', showTemplate, false);
+				}
+				// 绑定模版编辑按钮事件
+				var linkBtns = document.getElementsByClassName("link-btn");
+				for(var i=0; i<linkBtns.length;i++) {
+					linkBtns[i].addEventListener('click', editTemplate, false);
+				}
+			}
+			
+			function initTips() {
+				var tips = document.getElementsByClassName("tips-wrap");
+				if(tips.length==1) {
+					tips[0].addEventListener('click', function() {
+						if($(this).hasClass('on')) {
+							$(this).removeClass('on');
+							$(this).addClass('off');
+						}
+					}, false);
+				}
+			}
+			
+			initContent();
+			initTmpl();
+			initShare();
+			report();
+			initTips();
+		</script>
+
+	</body>
+
+</html>

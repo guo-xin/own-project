@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!--<meta http-equiv="refresh" content="5;url=report.html"/>-->
+<meta http-equiv="expires" content="Tue Jan 19 2016 18:02:09 GMT+0800 (中国标准时间)">  
+<!--<meta http-equiv="set-cookie" content="name=guo;expires=Wednesday Jan 19 2016 18:02:09 GMT"/>-->
+<meta http-equiv="Page-Exit"  contect="revealTrans(duration=1.0,transtion=0)">
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+<title>点击弹出层-点击关闭</title>
+<style>
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: .80;
+	filter: alpha(opacity=80);
+}
+.white_content {
+	display: none;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	width: 80%;
+	border: 2px solid rgb(25, 190, 244);
+	border-radius: 5px;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+	text-align: center;
+}
+.white_content_small {
+	display: none;
+	position: absolute;
+	top: 5%;
+	left: 30%;
+	width: 40%;
+	height: 50%;
+	border: 16px solid lightblue;
+	background-color: white;
+	z-index: 1002;
+	overflow: auto;
+}
+.dialog{
+	width: 95%;
+	height:50px;
+	margin-top: 6px;
+	border: 1px solid rgb(178, 178, 178);
+	border-radius: 4px;
+}
+</style>
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap-3.3.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//弹出隐藏层
+function ShowDiv(show_div,bg_div){
+document.getElementById(show_div).style.display='block';
+document.getElementById(bg_div).style.display='block' ;
+var bgdiv = document.getElementById(bg_div);
+bgdiv.style.width = document.body.scrollWidth;
+$("#"+bg_div).height($(document).height());
+$("#"+show_div).height($(document).height()*0.9);
+//$(".white_content").height($(document).height()-100);
+};
+//关闭弹出层
+function CloseDiv(show_div,bg_div)
+{
+	document.getElementById(show_div).style.display='none';
+	document.getElementById(bg_div).style.display='none';
+	//alert($(".dialog").val());
+	//alert(document.getElementById("dialog").value);
+	alert(document.getElementsByClassName("dialog")[0].value);
+};
+//保存弹出层
+function SaveDiv(show_div,bg_div)
+{
+	document.getElementById(show_div).style.display='none';
+	document.getElementById(bg_div).style.display='none';
+}
+</script>
+</head>
+<body>
+<input type="button" value="点击弹出层" onclick="ShowDiv('MyDiv','fade')"/>
+<!--弹出层时背景层DIV-->
+<div id="fade" class="black_overlay"></div>
+<div id="MyDiv" class="white_content">
+  
+  <input type="text" id="dialog" class="dialog">
+  	<input type="text"  class="dialog">
+  		<input type="text"  class="dialog">
+  	<div style="text-align: right; cursor: default; height: 30px;margin-top: 10px;margin-right: 20px;">
+  	<a style="font-size: 16px;" class="btn btn-primary" onclick="CloseDiv('MyDiv','fade')">关闭</a> 
+  	<a style="font-size: 16px;" class="btn btn-primary" onclick="SaveDiv('MyDiv','fade')">保存</a> 
+  </div>
+</input>
+</div>
+
+ <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">查看演示案例</a>
+ <a href="boostrap学习1.html" role="button" class="btn btn-primary">查看演示案例</a>
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="container" style="background: #FFFFFF;margin-top: 5%;">
+  	 <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+  	<input type="text" class="dialog"/>
+    <p class="text-info">One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+  </div>
+ 
+</div>
+</body>
+</html>

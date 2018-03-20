@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新建服务模板</title>
+		<link href="css/public.css" type="text/css" rel="stylesheet" />
+		<link href="css/backstage.css" type="text/css" rel="stylesheet" />
+		<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="css/service.css" type="text/css" rel="stylesheet" />
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+		<link href="css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet" />
+		<script src="js/public.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div class="s20"></div>
+		<div class="search-management">
+			<div class="invitation fl_left">全部企业：</div>
+		</div>
+		<div class="s10" style="clear:both;"></div>
+		<!--nav-等待问题菜单-结束-->
+		<form id="showPkgForm" action="${webroot}/servicepkg/showEdit" method="post" enctype="multipart/form-data">
+			<input type="hidden" id="id" name="id" value="${obj.id }" />
+			<div class="doctor-management" id="center-stroll">
+				<h3>
+				<span onclick="requestUrlService()">全部服务&lt; 服务模板前端展示信息</span>：
+			</h3>
+				<div class="doctor-modify border-r6">
+					<table width="90%" border="0">
+						<tr>
+							<td colspan="6" class="basics-ybb">展示信息：</td>
+						</tr>
+					</table>
+
+					<div class="form-group">
+						<div class="col-xs-6">
+							<label class="doctor-cont fl_left">服务简称：</label>
+							<div class="w-auto fl_left">
+								<input id="abstractName" name="abstractName" class="control" maxlength="10" value="23232323" />
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<label class="doctor-cont fl_left">服务价格：</label>
+							<div class="w-auto fl_left">22323232323元/人</div>
+						</div>
+					</div>
+					<div class="doctor-error" id="pkgNameMsg" style="clear: both;"></div>
+
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务LOGO：</label>
+						<label class="w-auto fl_left"><img class="list-img" src="${obj.logoUrl}" class="logoUrl"></label>
+						<div class="w-auto fl_left">
+							<a href="javascript:;" class="file">选择...
+								<input type="file" value="增加导入" onchange="importExcel('${model.gpkgId}');"/>
+							</a>
+						</div>
+						<div class="w-auto fl_left font-12">
+							<label>图片大小：100X100</label>
+						</div>
+					</div>
+					<div class="doctor-error" id="pkgNameMsg" style="clear: both;"></div>
+
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务内容：</label>
+						<div class="w-auto fl_left">
+							<label>视频问诊，电话问诊，出具医生建议</label>
+						</div>
+					</div>
+					<div class="doctor-error" id="sellPriceMsg" style="clear: both;"></div>
+
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务时间：</label>
+						<div class="w-auto fl_left">
+							<label>2333</label>
+						</div>
+					</div>
+					<div class="doctor-error" id="sellPriceMsg" style="clear: both;"></div>
+
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务有效期：</label>
+						<div class="w-auto fl_left">
+							<label>12个月</label>
+						</div>
+					</div>
+					<div class="doctor-error" id="sellPriceMsg" style="clear: both;"></div>
+
+					<div class="s45" style="clear: both;"></div>
+				</div>
+				<div class="tempora">
+					<div class="tempor fl_left">
+						<input type="button" class="border-r4 temporary-y" value="完成" onclick="preSubmit();" />
+						<div class="s10"></div>
+						表单中信息全部为必填
+					</div>
+					<div class="tempor fr_right">
+						<input type="reset" class="border-r4 temporary" value="清空重填" />
+					</div>
+				</div>
+				<div class="s45" style="clear: both;"></div>
+			</div>
+		</form>
+	</body>
+</html>

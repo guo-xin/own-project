@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=6)">
+		<!--   引入jQuery -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div>
+			<table>
+				<tr>
+					<td colspan="4" class="data1">第一个数字<input type="text" onkeyup="if(!(/^-?\d+(\.\d)?$/.test(this.value))){alert('只能输入数字');this.value='';}"></td>
+				</tr>
+				<tr>
+					<td><input class="rule1" type="button" value="+"></td>
+					<td><input class="rule2" type="button" value="-"></td>
+					<td><input class="rule3" type="button" value="*"></td>
+					<td><input class="rule4" type="button" value="/"></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="data1">第一个数字<input type="text" onchange="if(!(/^-?\d+(\.\d)?$/.test(this.value))){alert('只能输入数字');this.value='';}"></td>
+				</tr>
+				<tr>
+					<td><input class="rule1" type="button" value="+" /></td>
+					<td><input class="rule2" type="button" value="-" /></td>
+					<td><input class="rule3" type="button" value="*" /></td>
+					<td><input class="rule4" type="button" value="/" /></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="data1">第一个数字<input type="text" onchange="if(!(/^-?\d+(\.\d)?$/.test(this.value))){alert('只能输入数字');this.value='';}"></td>
+				</tr>
+				<tr>
+					<td><input class="rule1" type="button" value="+"></td>
+					<td><input class="rule2" type="button" value="-"></td>
+					<td><input class="rule3" type="button" value="*"></td>
+					<td><input class="rule4" type="button" value="/"></td>
+				</tr>
+				<tr>
+					<td colspan="4" class="data2">第二个数字<input type="text" onchange="if(!(/^-?\d+(\.\d)?$/.test(this.value))){alert('只能输入数字');this.value='';}"></td>
+				</tr>
+				<tr>
+					<td><input class="rule5 gu_o" type="button" value="=guo" /></td>
+					<td colspan="3" class='clus'><input type="text" /></td>
+				</tr>
+				<tr>
+					<td><input class="rule5" type="button" id="guoxin" value="添加内容" /></td>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				/*给未创建的元素添加事件*/
+				$("body").on("click", ".rule6", function(e) {
+					alert(this.tagName);
+				})
+				$("#guoxin").click(function() {
+					$('<input class="rule6" type="button" value="新增加的">').insertAfter($("#guoxin"));
+				})
+
+
+				//递归算法
+				function factorial(num) {
+					if(num <= 1) {
+						return 1;
+					} else {
+						return num * arguments.callee(num - 1);
+					}
+					
+				}
+				
+				console.log(factorial(3));
+
+			});
+			/*window.onbeforeunload = function(event) {
+				return ("数据可能会丢失!");
+				
+			}*/
+		</script>
+	</body>
+
+</html>

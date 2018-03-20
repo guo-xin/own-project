@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8">
+		<!--缩放比例1，禁止缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>boostrap学习2</title>
+		<link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet"></link>
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div style="padding:0px 15px;"> 
+			<h1>案例一form-horizontal</h1>
+			<form role="form" class="form-horizontal">
+				<!--颜色样式has-error,has-wraning,has-success,需与has-feedback一起使用-->
+				<div class="form-group form-group-lg has-error has-feedback">
+					<label class="col-xs-2 control-label">控件变大</label>
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="添加.form-group-lg，控件整体变大" />
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+				</div>
+				<div class="form-group form-group-sm has-warning has-feedback">
+					<label class="col-xs-2 control-label">控件变小</label>
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="添加.form-group-sm，控件整体变小" />
+						<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+					</div>
+				</div>
+			</form>
+			<h1>案例二</h1>
+			<form role="form">
+				<div class="form-group has-error has-feedback">
+					<!--control-label无用,在for-horizontal下才有用-->
+					<label class="control-label">控件变大</label>
+					<input type="text" class="form-control input-lg" placeholder="添加.input-lg，控件变大 错误状态" />
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<span class="help-block">你所输入的信息有误</span>
+				</div>
+				<div class="form-group">
+					<label class="control-label">正常控件</label>
+					<input type="text" class="form-control" placeholder="正常控件大小" />
+				</div>
+				<div class="form-horizontal">
+					<div class="form-group has-success has-feedback">
+						<div>
+							<input type="text" class="form-control input-sm" placeholder="添加.input-sm，控件变小" />
+							<span class="glyphicon glyphicon-search form-control-feedback"></span>
+						</div>
+					</div>
+				</div>
+			</form>
+			<h1>案例三form-horizontal</h1>
+			<form role="form" class="form-horizontal">
+				<div class="form-group">
+					<div class="col-xs-4">
+						<input type="text" class="form-control input-lg" placeholder="input-lg的col-xs-4" />
+					</div>
+					<div class="col-xs-5">
+						<input type="text" class="form-control" placeholder="正常的col-xs-5" />
+					</div>
+					<div class="col-xs-3">
+						<input type="text" class="form-control input-sm" placeholder="input-sm的col-xs-3" />
+					</div>
+				</div>
+				<div class="form-group form-group-lg">
+					<div class="col-xs-2">
+						<input type="text" class="form-control" placeholder="input-lg的col-xs-2" />
+					</div>
+					<div class="col-xs-10">
+						<input type="text" class="form-control" placeholder="input-lg的col-xs-10" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6">
+						<input type="text" class="form-control input-lg" placeholder="input-lg的col-xs-6" />
+					</div>
+					<div class="col-xs-6">
+						<input type="text" class="form-control" placeholder="正常的col-xs-6" />
+					</div>
+				</div>
+			</form>
+			<div class="row">
+				<div class="col-xs-2">
+					<input type="text" class="form-control" placeholder=".col-xs-2">
+				</div>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" placeholder=".col-xs-3">
+				</div>
+				<div class="col-xs-4">
+					<input type="text" class="form-control" placeholder=".col-xs-4">
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					dataType: 'script', //发送数据格式
+					type: 'post',
+					//http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=4&city=%E5%8C%97%E4%BA%AC&dfc=3
+					url: 'http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city=&dfc=3&charset=utf-8', //直接发向这个地址
+					success: function() {
+						console.log(window.SWther);
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

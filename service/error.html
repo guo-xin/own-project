@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link href="css/public.css" type="text/css" rel="stylesheet">
+		<link href="css/backstage.css" type="text/css" rel="stylesheet">
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/bootstrap/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+
+		<!--滚动条js-->
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js"></script>
+		<link href="css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet">
+
+		<link href="css/service.css" type="text/css" rel="stylesheet">
+		<script src="js/public.js" type="text/javascript"></script>
+		<title>异常页面</title>
+		<style type="text/css">
+			.error-message {
+				max-height: 100px;
+			}
+			.control_show {
+				display: none;
+				max-height: 400px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="doctor-management">
+			<div style="margin-top:50px;">
+				<div class="tempor fl_left">
+					<input type="button" class="border-r4 temporary-y" value="返回" onclick="window.history.back();" />
+				</div>
+			</div>
+			<div class="s10"></div>
+			<div class="form-group">
+				<label class="doctor-cont fl_left">异常代码:</label>
+				<div class="w-auto fl_left">${errCode}</div>
+			</div>
+			<div class="s10"></div>
+			<div class="error-message">
+				<div class="form-group">
+					<label class="doctor-cont fl_left">异常描述:</label>
+					<div class="w-auto fl_left">${errMsg}atMetsionI{errMsg}at
+				</div>
+			</div>
+			<div class="s10"></div>
+			<div style="margin-top:30px;">
+				<div class="tempor fl_left">
+					<input type="button" class="border-r4 temporary-y" value="详情" onclick="control_show();" />
+				</div>
+				<div class="s10"></div>
+				<div class="form-group control_show" id="center-stroll">
+					<div class="s20"></div>
+					<div class="w-auto fl_left">错误详情，后台传 ${errMsg}at sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.
+						${errMsg}at sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.${errMsg}at
+						sun.reflect.GeneratedMethodAccessor238.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) at java.lang.reflect.Method.invoke(Method.java:497) at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function control_show() {
+			$(".control_show").toggle();
+		}
+	</script>
+
+</html>

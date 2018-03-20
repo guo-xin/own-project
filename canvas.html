@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	</head>
+
+    <img id="bg" src="./img/logo.png" alt="点餐桌贴" style="display:none">
+
+	<body>
+    <script type="text/javascript">
+        var img = new Image();
+        img.src = './img/logo.png';
+        window.onload = function () {
+            var canvas = document.createElement('canvas');
+            canvas.setAttribute('name', '25');
+            if(canvas.getContext('2d')) {
+                var ctx = canvas.getContext('2d');
+                canvas.width = 460;
+                canvas.height = 620;
+                ctx.fillStyle = '#fe9b20';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                // var bg = document.getElementById('bg');
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = 'red';
+                ctx.font = 'bold 22px 黑体';
+                ctx.textAlign = 'center';
+                var text = '桌牌号';
+                ctx.fillText(text, 228, 460);
+                document.querySelector('body').appendChild(canvas)
+            }
+        }
+    </script>
+	</body>
+
+</html>

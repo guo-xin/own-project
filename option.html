@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=6)"> 
+	<!--   引入jQuery -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div>
+	<form name="guoxin">
+		<select class="aa" onchange="getvalue(this);">
+			<option id="guoxin1" value="1">guoxin1</option>
+			<option id="guoxin2" value="2">guoxin2</option>
+			<option id="guoxin3" value="3">guoxin3</option>
+			<option id="guoxin4" value="4">guoxin4</option>
+			<option id="guoxin5" value="5">guoxin5</option>
+		</select>
+	</form>
+	<input type="button" class="inter" value="60" />	
+</div>
+<script type="text/javascript">
+function getvalue(obj){
+	alert(obj.options[obj.selectedIndex].text());
+	//alert(obj.options[obj.selectedIndex].id+" "+obj.value);
+	//guoxin.reset();
+	}
+$(".inter").click(function(){
+	window.setInterval('$(".inter")[0].value = $(".inter")[0].value -1',1000);
+})
+
+</script>
+</body>
+</html>

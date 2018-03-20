@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--   引入jQuery -->
+<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div id="guo" class="guo">
+	<table>
+		<tr>
+			<td  colspan="4" class="data1">第一个数字<input type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}"></td>
+		</tr>
+		<tr>
+			<td><input class="rule1"  type="button" value="+"></td>
+			<td><input class="rule2"  type="button" value="-"></td>
+			<td><input class="rule3"  type="button" value="*"></td>
+			<td><input class="rule4"  type="button" value="/"></td>
+		</tr>
+		<tr>
+			<td colspan="4" class="data2">第二个数字<input type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}"></td>
+		</tr>
+		<tr>
+			<td><input class="rule5" type="button" value="="></td>
+			<td colspan="3" class='clus'><input type="text"></td>
+		</tr>
+	</table>
+</div>
+<script>
+ rule = 0;
+$(".rule1").click(function(){
+	rule = 1;
+})
+$(".rule2").click(function(){
+	rule = 2;
+})
+$(".rule3").click(function(){
+	rule = 3;
+})
+$(".rule4").click(function(){
+	rule = 4;
+})
+$(".rule5").click(function(){
+	var shuzi1 = $(".data1 input").val();
+	var shuzi2 = $(".data2 input").val();
+	if(rule == 2){
+		$(".clus input").val(shuzi1-shuzi2);
+	}else if(rule == 3){
+		$(".clus input").val(shuzi1*shuzi2);
+	}else if(rule == 4){
+		$(".clus input").val(shuzi1/shuzi2);
+	}else{
+		var a = Number($(".data1 input").val())+Number($(".data2 input").val());
+		$(".clus input").val(a);
+	}
+})
+</script>
+</body>
+</html>

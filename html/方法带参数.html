@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--   引入jQuery -->
+<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script language="javascript" >
+	$(function(){// dom元素加载完毕
+		var message = 'Spoon!';
+		$('#foo').bind('click',{msg:message},function(e) {
+		  alert(e.data.msg);
+		});
+		message = 'Not in the face!';
+		$('#bar').bind('click',{msg:message},function(a) {
+		  alert(a.data.msg);
+		});
+	})
+</script>
+</head>
+<body>
+<input type="button" value="1" id="foo"/>
+<input type="button" value="2" id="bar"/>
+<input type="checkbox" value="3" name="check" checked/>
+<input type="button" value="测试选中的个数" id="btn"/>
+</body>
+</html>

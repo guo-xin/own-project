@@ -1,0 +1,86 @@
+<html>
+
+	<head>
+		<title>排序题</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<link href="../css/q.css" rel="stylesheet"></link>
+	</head>
+	<body>
+		<div class="div_question" style="background: #EDFAFE;">
+			<div class="div_table_radio_question" id="guoxin">
+			</div>
+		</div>
+		<script type="text/javascript">
+			var questionRank = {"displayID":"guoxin",//问题ID
+        					"options":[{"optionID":"01","label":"苹果","value":"1"},{"optionID":"02","label":"香蕉","value":"2"},{"optionID":"03","label":"梨子","value":"3"},
+        					{"optionID":"04","label":"草莓","value":"4"},{"optionID":"05","label":"橘子","value":"5"},{"optionID":"06","label":"西瓜","value":"6"}
+        					]};
+			function set_rank(questionRank){
+				if(questionRank && questionRank.length !== 0){
+				var rank_id = questionRank.displayID;
+				var rank = "";
+				var options_value = "";
+				rank +="<div style='width:90%;'><ul style='float:left;'>";
+				for(var i=0;i<questionRank.options.length;i++){
+					if(questionRank.options[i].value !== ""){
+						rank +="<li style='float:none;' class='lisort'><input name='"+questionRank.options[i].optionID+"' type='checkbox' checked><label>"+questionRank.options[i].label+"</label></li>";
+						options_value +="<option value='"+questionRank.options[i].value+"' to='"+questionRank.options[i].optionID+"'>"+questionRank.options[i].label+"</option>";
+					}else{
+						rank +="<li style='float:none;' class='lisort'><input name='"+questionRank.options[i].optionID+"' type='checkbox'><label>"+questionRank.options[i].label+"</label></li>";
+					}
+				}
+				rank +="</ul><table style='float:left;'><tbody><tr><td verticalalign='center'><div style='margin-left:10px;'><select size='6' id='rank_select' style='width:200px;overflow:auto;height:120px;'>";
+				rank +=options_value+"</select></div></td><td verticalalign='center'><div class='qButton'><ul>";
+				//添加操作按钮
+				rank +="<li><a class='goTop' href='javascript:void(0);' name='first'>移至最前</a></li>";
+				rank +="<li><a class='upMove' href='javascript:void(0);' name='up'>上移一位</a></li>";
+				rank +="<li style='margin-top:10px'><a class='downMove' href='javascript:void(0);' name='down'>下移一位</a></li>";
+				rank +="<li><a class='goBottom' href='javascript:void(0);' name='last'>移至最后</a></li>";
+				rank +="</ul></div></td></tr></tbody></table></div>";
+				$("#"+rank_id).html(rank);
+				give_value();
+				//左侧复选按钮操作
+				$(".lisort>input").click(function(){
+					var label_text = $(this).siblings("label").text();
+					var input_name = $(this).attr("name");
+					if($(this).is(":checked") == true){
+						$("#rank_select").append("<option value='' to='"+input_name+"'>"+label_text+"</option>");
+					}else{
+						$("#rank_select").find("option[to="+input_name+"]").remove();
+						$(this).val("");
+					}
+					give_value();
+				});
+				//右侧位置浮动按钮操作
+				$(".qButton a").click(function(){
+					var m = $("#rank_select").find("option:selected").clone();
+					if($(this).attr("name") == "first"){
+						$("#rank_select").find("option:selected").remove();
+						$("#rank_select").prepend(m);
+					}else if($(this).attr("name") == "up"){
+						$("#rank_select").find("option:selected").insertBefore($("#rank_select").find("option:selected").prev("option"));
+					}else if($(this).attr("name") == "down"){
+						$("#rank_select").find("option:selected").insertAfter($("#rank_select").find("option:selected").next("option"));
+					}else if($(this).attr("name") == "last"){
+						$("#rank_select").find("option:selected").remove();
+						$("#rank_select").append(m);
+					}
+					give_value();
+				});
+				//每次操作，重新给option赋value
+				function give_value(){
+					for(var i=1;i<=$("#rank_select").find("option").length;i++){
+						//$("#rank_select").find("option:eq("+j+")").val(i);
+						document.getElementById("rank_select").options[i-1].value = i;
+						var n = document.getElementById("rank_select").options[i-1].getAttribute("to");
+						document.getElementsByName(n)[0].value = i;
+						}
+					}
+				}
+			}
+			set_rank(questionRank);
+		</script>
+	</body>
+
+</html>

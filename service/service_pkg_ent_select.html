@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新建自购服务模板</title>
+		<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="css/public.css" type="text/css" rel="stylesheet" />
+		<link href="css/backstage.css" type="text/css" rel="stylesheet" />
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+		<link href="css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet" />
+		<link href="css/service.css" type="text/css" rel="stylesheet" />
+		<script src="js/public.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<form id="pkgForm" action="${webroot}/servicepkg/save" method="post">
+			<input type="hidden" id="pkgType" name="pkgType" value="${pkgForm.pkgType}" />
+			<!--nav-等待问题菜单-结束-->
+			<div class="doctor-management" id="center-stroll">
+				<h3>新建自购服务模板：</h3>
+				<div class="doctor-modify border-r6">
+					<div class="form-group">
+						<div class="doctor-cont fl_left">职称：</div>
+						<div class="col-xs-10">
+							<div class="service-count">
+								<input type="checkbox" name="docJobTitlePage" value="-1" onchange="selectJobTitle(this)" />
+								<label>全部</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+
+						</div>
+						<div class="doctor-error" style="clear:both;"></div>
+					</div>
+
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务时间：</label>
+						<div class="w-auto fl_left">
+							<select name="attendTime" class="select_hight">
+								<option value="">233233222222</option>
+								<option value="">23323</option>
+								<option value="">23323</option>
+								<option value="">23323</option>
+							</select>
+						</div>
+					</div>
+					<div class="s20"></div>
+					<table width="90%">
+						<tr>
+							<td colspan="6" class="basics-ybb">服务内容：</td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<label class="doctor-cont fl_left">有效期：</label>
+						<div class="w-auto fl_left">
+							<select name="validMonth" id="validMonth" class="select_hight">
+								<option value="">1</option>
+								<option value="">12</option>
+								<option value="">13</option>
+								<option value="">14</option>
+							</select>
+						</div>
+					</div>
+					<div class="s10"></div>
+					<div class="form-group">
+						<label class="doctor-cont fl_left">咨询次数：</label>
+						<div class="w-auto fl_left">
+							<input type="text" class="fontl" placeholder="" name="serviceCount" value="" />
+						</div>
+						<label class="w-auto fl_left">次</label>
+						<div class="doctor-error" id="serviceCountMsg" style="clear:both;"></div>
+					</div>
+					<div class="s10"></div>
+					<div class="form-group">
+						<div class="doctor-cont fl_left">咨询方式：</div>
+						<div class="col-xs-10">
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultWayPage" value="-1" onchange="selectConsultWay(this)" />
+								<label>全部</label>
+							</div>
+
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultWayPage" value="" onchange="selectConsultWay(this)" />
+								<label>视频咨询</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultWayPage" value="" onchange="selectConsultWay(this)" />
+								<label>电话咨询</label>
+							</div>
+
+						</div>
+						<div class="doctor-error" id="consultWayMsg" style="clear:both;"></div>
+					</div>
+
+					<div class="form-group">
+						<div class="doctor-cont fl_left">其它服务：</div>
+						<div class="col-xs-10">
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultRangePage" value="-1" onchange="selectConsultRangePage(this)" />
+								<label>全部</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultRangePage" value="" onchange="selectConsultRangePage(this)" />
+								<label>出具医生建议</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" value="" onchange="selectConsultRangePage(this)" />
+								<label>出具医生建议</label>
+							</div>
+						</div>
+						<div class="doctor-error" id="consultRangeMsg" style="clear:both;"></div>
+					</div>
+					<div class="s20"></div>
+					<div class="s45" style="clear: both;"></div>
+				</div>
+				<div class="tempora">
+					<div class="tempor fl_left">
+						<input type="button" class="border-r4 temporary-y" style="border: 0px" value="完成" data-toggle="modal" data-target="#editStatusModal" />
+					</div>
+					<div class="tempor fr_right">
+						<input type="reset" class="border-r4 temporary" value="清空重填" />
+					</div>
+				</div>
+		</form>
+	</body>
+	<script>
+	$(".border-r4").click(function(){
+		dialog(0,{title:"重置密码",body:" 您要重置  <font color=\"red\">"+name+"</font> 医生的登录密码？",refresh:true,btn_count:2,btn_name1:"确认",btn_name2:"取消",trueFun:"rest_in()"});
+		//$("#guoxin",parent.document).trigger("click");
+	})
+	function rest_in(){
+		alert("修改成功!");
+	}
+		$(function(){
+			$(".border-r4").click(function(){
+				disabled_true(this);
+				setTimeout(disabled_false(this),3000);
+			})
+		})
+		
+		
+		//按钮禁用
+		function disabled_true(obj){
+			$(obj).prop("disabled",true);
+			$(obj).addClass("btn-disabled");
+		};
+		//按钮解禁
+		function disabled_false(obj){
+			return function(){
+			  	$(obj).removeAttr("disabled");
+				$(obj).removeClass("btn-disabled");
+			}
+		};
+	</script>
+</html>

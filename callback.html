@@ -1,0 +1,60 @@
+<html>   
+   
+<head>   
+   
+<title>回调函数(callback)</title> 
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">  
+
+$(document).ready(function(){
+	$('.target').change(function() {
+  	alert(222);
+});
+	var i=0;
+	function a(callback)   
+	{   
+		i++;
+	   	alert(i);   
+	    alert("调用回调函数");   
+	    callback();   
+	}   
+	function b(){   
+	alert("我是回调函数b");   
+	  
+	}   
+	function c(){   
+	alert("我是回调函数c");   
+	  
+	}   
+	  
+	$("button").bind("click",function(){
+		a(b);
+		a(c);
+		
+	})
+//$("button").trigger("click");
+})
+  
+</script>   
+</head>   
+   
+<body>   
+<h1>学习js回调函数</h1>   
+<button>click me</button>   
+<p>应该能看到调用了两个回调函数</p>  
+<form>
+  <textarea class="target" value="Field 1" cols="100" rows="50"></textarea>
+  <select class="target">
+    <option value="option1" selected="selected">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option2">Option 3</option>
+    <option value="option2">Option 4</option>
+    <option value="option2">Option 5</option>
+  </select>
+</form>
+<div id="other">
+  Trigger the handler
+</div>
+</body>   
+   
+</html>  

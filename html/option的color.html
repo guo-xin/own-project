@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>颜色的</title>
+<script language="javascript" type="text/javascript" src="../js/jquery-1.3.1.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+
+	function changecolor(){
+    alert($("#a option:selected").text());
+    var X = $("select[name=a] option:selected").attr("value");
+    $("body").css("background", X ); 
+ }
+
+
+</script>
+</head>
+<body>
+<select id="a" onchange="changecolor()" name="a">
+  <option value="#d0cfb2" selected="selected">eww</option>
+  <option style="background-color: #d0cfb2" value="#d0cfb2">22</option>
+  <option style="background-color: #e9faff" value="#e9faff">121</option>
+  <option style="background-color: #f1f1f1" value="#f1f1f1">12</option>
+  <option style="background-color: #eefaee" value="#eefaee">前雾灯</option>
+  <option style="background-color: #ffffed" value="#ffffed">阿斯顿</option>
+  <option style="background-color: #4394d6" value="#4394d6">阿斯顿</option>
+  <option style="background-color: #d0cfb2" value="#d0cfb2">按说</option>
+  <option style="background-color: #9fc383" value="#9fc383">爱的</option>
+  <option style="background-color: #fcefff" value="#fcefff">按说是</option>
+  <option style="background-color: #fbe5d9" value="#fbe5d9">啊</option>
+  <option style="background-color: #c2ceda" value="#c2ceda">fd </option>
+  <option style="background-color: #616378" value="#616378">sf </option>
+  <option style="background-color: #ffffff" value="#ffffff">sfd</option>
+  <option style="background-color: #cccccc" value="#cccccc">34</option>
+</select>
+</body>
+</html>

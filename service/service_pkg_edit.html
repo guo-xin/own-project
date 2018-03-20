@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link href="css/bootstrap/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link href="css/public.css" type="text/css" rel="stylesheet">
+		<link href="css/backstage.css" type="text/css" rel="stylesheet">
+		<link href="css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/bootstrap/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/ajaxfileupload.js"></script>
+		
+		<!--滚动条js-->
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js"></script>
+		<link href="css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet">
+		
+		<link href="css/service.css" type="text/css" rel="stylesheet">
+		<script src="js/public.js" type="text/javascript"></script>
+
+	</head>
+	<body>
+		<form id="pkgForm" action="" method="post">
+			<input type="hidden" id="pkgType" name="pkgType" value="" />
+			<!--nav-等待问题菜单-结束-->
+			<div class="doctor-management" id="center-stroll" style="height: 99%;">
+				<h3>新建自购服务模板：</h3>
+				<div class="doctor-modify border-r6">
+					<table width="90%">
+						<tr>
+							<td colspan="6" class="basics-ybb">联系信息：</td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<div class="col-xs-4">
+							<label class="doctor-cont fl_left">联系人：</label>
+							<div class="w-140 fl_left">
+								<input type="text" id="contactName" name="contactName" class="w-140 control" placeholder="人名" value=""/>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<label class="doctor-cont fl_left">联系电话：</label>
+							<div class="w-140 fl_left">
+								<input type="text" id="contactPhone" name="contactPhone" class="w-140 control" value="" onblur="isTelNo()" onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="手机"/>
+							</div>
+							<div class="doctor-error" id="phoneerror" style="clear: both;width: 300px;padding-left: 100px;padding-top: 5px;"></div>
+						</div>
+						<div class="col-xs-4">
+							<label class="doctor-cont fl_left">邮箱：</label>
+							<div class="w-140 fl_left">
+								<input type="text" id="contactEmail" name="contactEmail" class="w-140 control" value=""  onblur="checkEmail()" placeholder="电子邮件"/>
+							</div>
+							<div class="doctor-error" id="emailerror" style="clear: both;"></div>
+						</div>
+					</div>
+
+					<table width="90%">
+						<tr>
+							<td colspan="6" class="basics-ybb">服务信息：</td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务名称：</label>
+						<div class="docto-ss fl_left">
+							<input class="control" value="" />
+						</div>
+					</div>
+					<div class="doctor-error" id="pkgNameMsg" style="clear:both;"></div>
+
+					<div class="form-group">
+						<label class="doctor-cont fl_left">用户购买价：</label>
+						<div class="w-auto fl_left">
+							<input type="text" class="fontl" id="sellPrice" name="sellPrice" value="" />
+						</div>
+						<div class="w-auto fl_left">
+							<label>人民币/人</label>
+						</div>
+					</div>
+					<div class="doctor-error" id="sellPriceMsg" style="clear:both;"></div>
+					<table width="90%">
+						<tr>
+							<td colspan="6" class="basics-ybb">医生资源：</td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<div class="doctor-cont fl_left">科室：</div>
+
+						<div class="col-xs-10">
+							<div class="service-count">
+								<input type="checkbox" name="departIds" value="-1" onchange="selectDepart(this)" />
+								<label>全部</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室1</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室门诊科</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室门诊科</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室门诊科</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室1</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室门诊科</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室门诊科</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="departIds" value="${depart.code}" onchange="selectDepart(this)" />
+								<label>科室门诊科</label>
+							</div>
+						</div>
+						<div class="doctor-error" id="departMsg" style="clear:both;"></div>
+					</div>
+					<div class="form-group">
+						<div class="doctor-cont fl_left">职称：</div>
+						<div class="col-xs-10">
+							<div class="service-count">
+								<input type="checkbox" name="docJobTitlePage" value="-1" onchange="selectJobTitle(this)" />
+								<label>全部</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="docJobTitlePage" value="" onchange="selectJobTitle(this)" />
+								<label>副主任医师</label>
+							</div>
+						</div>
+						<div class="doctor-error" id="docJobTitleMsg" style="clear:both;"></div>
+					</div>
+					<div class="form-group">
+						<div class="doctor-cont fl_left">职业年限：</div>
+						<div class="col-xs-10">
+							<div class="service-count">
+								<input type="checkbox" name="workYearsPage" value="-1" onchange="selectWorkYears(this)" />
+								<label> 全部</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="workYearsPage" value="" onchange="selectWorkYears(this)" />
+								<label>
+									<=3年</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="workYearsPage" value="" onchange="selectWorkYears(this)" />
+								<label>
+									<=3年</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="workYearsPage" value="" onchange="selectWorkYears(this)" />
+								<label>
+									<=3年</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="workYearsPage" value="" onchange="selectWorkYears(this)" />
+								<label>
+									<=3年</label>
+							</div>
+						</div>
+						<div class="doctor-error" id="workYearsMsg" style="clear:both;"></div>
+					</div>
+					<div class="form-group">
+						<label class="doctor-cont fl_left">服务时间：</label>
+						<div class="w-auto fl_left">
+							<select name="attendTime" class="select_hight">
+								<option value="">233233222222</option>
+								<option value="">23323</option>
+								<option value="">23323</option>
+								<option value="">23323</option>
+							</select>
+						</div>
+					</div>
+					<div class="s20"></div>
+					<table width="90%">
+						<tr>
+							<td colspan="6" class="basics-ybb">服务内容：</td>
+						</tr>
+					</table>
+					<div class="form-group">
+						<label class="doctor-cont fl_left">有效期：</label>
+						<div class="w-auto fl_left">
+							<select name="validMonth" id="validMonth" class="select_hight">
+								<option value="">1</option>
+								<option value="">12</option>
+								<option value="">13</option>
+								<option value="">14</option>
+							</select>
+						</div>
+					</div>
+					<div class="s10"></div>
+					<div class="form-group">
+						<label class="doctor-cont fl_left">咨询次数：</label>
+						<div class="w-auto fl_left">
+							<input type="text" class="fontl" placeholder="" name="serviceCount" id="serviceCount" value="" />
+						</div>
+						<label class="w-auto fl_left">次</label>
+						<div class="doctor-error" id="serviceCountMsg" style="clear:both;"></div>
+					</div>
+					<div class="s10"></div>
+					<div class="form-group">
+						<div class="doctor-cont fl_left">咨询方式：</div>
+						<div class="col-xs-10">
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultWayPage" value="-1" onchange="selectConsultWay(this)" />
+								<label>全部</label>
+							</div>
+
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultWayPage" value="" onchange="selectConsultWay(this)" />
+								<label>视频咨询</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultWayPage" value="" onchange="selectConsultWay(this)" />
+								<label>电话咨询</label>
+							</div>
+						</div>
+						<div class="doctor-error" id="consultWayMsg" style="clear:both;"></div>
+					</div>
+
+					<div class="form-group">
+						<div class="doctor-cont fl_left">其它服务：</div>
+						<div class="col-xs-10">
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultRangePage" value="-1" onchange="selectConsultRangePage(this)" />
+								<label>全部</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultRangePage" value="" onchange="selectConsultRangePage(this)" />
+								<label>出具医生建议</label>
+							</div>
+							<div class="service-count fl_left">
+								<input type="checkbox" name="consultRangePage" value="" onchange="selectConsultRangePage(this)" />
+								<label>出具医生建议</label>
+							</div>
+						</div>
+						<div class="doctor-error" id="consultRangeMsg" style="clear:both;"></div>
+					</div>
+					<div class="s45" style="clear: both;"></div>
+				</div>
+				<div class="tempora">
+					<div class="tempor fl_left">
+						<input type="button" class="border-r4 temporary-y" value="完成" onclick="preSubmit();" />
+						<div class="s10"></div>
+						表单中信息全部为必填
+					</div>
+					<div class="tempor fr_right">
+						<input type="reset" class="border-r4 temporary" value="清空重填" />
+					</div>
+				</div>
+				<div class="s45" style="clear: both;"></div>
+			</div>
+		</form>
+	</body>
+</html>

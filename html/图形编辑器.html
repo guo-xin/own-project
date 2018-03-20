@@ -1,0 +1,255 @@
+<!--   /report/chart_gallery_simulator.jsp   -->
+<html>
+<head>
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+<link rel="stylesheet" href="../css/global.css" type="text/css">
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<style type="text/css">
+.img_condition{
+	height:35px;
+	border-bottom:#DFDFDF solid 1px;
+}
+.position_data,.position_input{
+	width:240px;
+	height:350px;
+	overflow-y:auto;
+	border:#9D9D9D solid 1px;
+}
+.choose_type{
+	height:50px;
+	float:left;
+}
+.position_right{
+	width:240px;
+	height:550px;
+	float:right;
+}
+.mouse_position{
+	float:left;
+	width:100%;
+}
+.position_look{
+	margin-top:40px
+}
+.position_img{
+	width:980px;
+	height:550px;
+	float:left;
+	border:#9D9D9D solid 1px;
+}
+.mouse_position input{
+	width:50px;
+	height:25px;
+}
+.positon_photo{
+	width:720px;
+	height:540px;
+	overflow:hidden;
+	margin:5px auto;
+}
+.img_condition td{padding-left:30px;}
+.button1{display:none;width:77px;}
+a{cursor:pointer;}
+</style>
+<title>Charting made simple</title>
+<style type="text/css">
+	/*等待状态样式*/
+	#loading{
+		position:fixed;z-index:10000;top:0px;left:0px;width:100%;Height:100%;display: none;
+	}
+</style>
+</head>
+<body>
+<form name=report action="/report.shtml" method='post'>
+	<input type="hidden" name="option" value="chart_gallery_simulator">
+	<input type="hidden" name="suboption" value="b">
+	<div id="loading">
+        <table width="100%" height="100%" >
+            <tr align="center">
+                <td><img src="../img/waiting.gif" /></td>
+            </tr>
+        </table>
+    </div>
+	<div class="img_condition">
+		<table style="height:35px;">
+			<tr>
+				<td>选择图形</td>
+				<td>
+					<select name="chartType">
+						<option>222</option>
+						<option>333</option>
+						<option>444</option>
+						<option>5555</option>
+						<option>6666</option>
+					</select>
+				</td>
+				<td>参数</td>
+				<td>
+					<input placeholder="行" class="t04" name="seriesCount" type="text" value=""/>
+				</td>
+				<td>
+					<input placeholder="列" class="t04" name="categoryCount" type="text" value=""/>
+				</td>
+				<td>
+					<a class="but" href="javascript:go();">GO</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="height:450px;margin:0 50px;">
+		<div class="position_img">
+			<div class="positon_photo">
+				<table>
+				<tr>
+					<td><img alt="" src="../img/01.png" style="width:720px;height:540px;" id="chartImage"></td>
+				</tr>
+			</table>
+			</div>
+		</div>
+		<div class="position_right">
+			<div class="choose_type">
+				<table>
+					<tr>
+						<td><a class="current language">图形</a></td>
+						<td><a class="language">文本框</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="position_data">
+				<table class="mouse_position">
+				</table>
+			</div>
+			<div class="position_input" style="display:none;">
+				<table class="mouse_position">
+				</table>
+			</div>
+			<div class="position_look">
+				<table>
+					<tr>
+						<td><a class="but" href="javascript:preview();">预览</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+</form>
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+	//图形，文本框切换
+	$("a.language").click(function(){
+		$("a.language").removeClass("current");
+		$(this).addClass("current");
+		if($(".choose_type").find("td:eq(1)").find("a").hasClass("current")){
+			$(".position_input").show();
+			$(".position_data").hide();
+		}else{
+			$(".position_input").hide();
+			$(".position_data").show();
+		}
+	});
+	var i = 0;
+	var j = 0;
+	var X1 = $(".positon_photo img").offset().left;
+	var X2 = X1+720;
+	var Y1 = $(".positon_photo img").offset().top;
+	var Y2 = Y1+540;
+	// 记录当前鼠标指针在文档中的当前坐标位置，点击鼠标传入右边文本框
+	$(".positon_photo").bind("click", function(event){
+		var Xi =1000*(event.pageX-X1)/(X2-X1);
+		var Yi =1000*(event.pageY-Y1)/(Y2-Y1);
+		if($(".choose_type").find("td:eq(1)").find("a").hasClass("current")){
+			i=i+1;
+			if(i%2 ==1){
+				$(".position_input").find(".mouse_position").append("<tr style='display:inline;'><td><input style='width:26px;' name='shapeID' value='"+i+"'/></td><td><input name='s"+i+"_x' value='"+Xi+"'/></td><td style='padding-left:4px;'><input name='s"+i+"_y' value='"+Yi+"'/></td><td class='button1'><a class='but'>删除</a></td></tr>");
+			}else{
+				var m=i-1;
+				$(".position_input").find(".mouse_position").append("<tr style='display:inline;'><td><input style='width:26px;' name='shapeID' value='"+i+"'/></td><td><input name='s"+m+"_x' value='"+Xi+"'/></td><td style='padding-left:4px;'><input name='s"+m+"_y' value='"+Yi+"'/></td><td class='button1'><a class='but'>删除</a></td></tr>");
+			}
+			
+		}else{
+			j=j+1;
+			if(j%2 ==1){
+				$(".position_data").find(".mouse_position").append("<tr style='display:inline;'><td><input style='width:26px;' name='chartID' value='"+j+"'/></td><td><input name='c"+j+"_x' value='"+Xi+"'/></td><td style='padding-left:4px;'><input name='c"+j+"_y' value='"+Yi+"'/></td><td class='button1'><a class='but'>删除</a></td></tr>");
+			}else{
+				var n=j-1;
+				$(".position_data").find(".mouse_position").append("<tr style='display:inline;'><td><input style='width:26px;' name='chartID' value='"+j+"'/></td><td><input name='c"+n+"_x' value='"+Xi+"'/></td><td style='padding-left:4px;'><input name='c"+n+"_y' value='"+Yi+"'/></td><td class='button1'><a class='but'>删除</a></td></tr>");
+			}
+		}
+		//删除位置数据
+		$(".button1").click(function(){
+			var k=$(this).prev().find("input").attr("name");
+			$("[name="+k+"]").parent("td").parent("tr").remove();
+		});
+		$(".mouse_position").find("tr").mousemove(function(){
+			$(this).find("td.button1").show();
+		}).mouseleave(function(){
+			$(this).find("td.button1").hide();
+		});
+	});
+	
+	
+})
+</script>
+<script type="text/javascript">
+	var option = "chart_gallery_simulator";
+	//搜
+	function go(){
+		preview();
+	}
+	//预览
+	function preview(){
+		//添加等待
+		$("#loading").css("display", "block");
+		var url = "/report.shtml?option="+option+"&suboption=e";
+		//图形
+		var chartType = document.getElementsByName("chartType")[0].value;
+		url += "&chartType="+chartType;
+		var categoryCount = document.getElementsByName("categoryCount")[0].value;
+		url += "&categoryCount="+categoryCount;
+		var seriesCount = document.getElementsByName("seriesCount")[0].value;
+		url += "&seriesCount="+seriesCount;
+		var chartIDs = document.getElementsByName("chartID");
+		for(var i = 0; i < chartIDs.length; i += 2){
+			var chartID = chartIDs[i].value;
+			url += "&chartID="+chartID;
+			var xs = document.getElementsByName("c"+chartID+"_x");
+			var ys = document.getElementsByName("c"+chartID+"_y");
+			if(xs.length == 2 && ys.length == 2){
+				for(var j = 0; j < 2; j ++){
+					var x = xs[j].value;
+					var y = ys[j].value;
+					url += "&c"+chartID+"_x=" + x + "&c"+chartID+"_y=" + y;
+				}
+			}
+		}
+		//形状
+		var shapeIDs = document.getElementsByName("shapeID");
+		for(var i = 0; i < shapeIDs.length; i += 2){
+			var shapeID = shapeIDs[i].value;
+			url += "&shapeID="+shapeID;
+			var xs = document.getElementsByName("s"+shapeID+"_x");
+			var ys = document.getElementsByName("s"+shapeID+"_y");
+			if(xs.length == 2 && ys.length == 2){
+				for(var j = 0; j < 2; j ++){
+					var x = xs[j].value;
+					var y = ys[j].value;
+					url += "&s"+shapeID+"_x=" + x + "&s"+shapeID+"_y=" + y;
+				}
+			}
+		}
+		execute(handlePreview, url);
+	}
+	//异步取图片
+	function handlePreview(){
+		var result = xmlHttp.responseText;
+		result = replaceAll(result, "<root>", "");
+		result = replaceAll(result, "</root>", "");
+		//替换图片内容
+		document.getElementById("chartImage").src="/image.shtml?option=pptTemplate&fileName="+result;
+		//取消等待
+		$("#loading").css("display", "none");
+	}
+</script>
+</html>

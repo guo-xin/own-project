@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!--   引入jQuery -->
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div id="guo" class="guo">
+			<table>
+				<tr>
+					<td colspan="4" class="data1"><select type="text" onchange="checktype(this)">
+				<option value="1">111</option>
+				<option value="2">2222</option>
+				<option value="3">333</option>
+				<option value="4">444</option>
+			</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input class="rule1" type="button" value="+"></td>
+					<td><input class="rule2" type="button" value="-"></td>
+					<td><input class="rule3" type="button" value="*"></td>
+					<td><input class="rule4" type="button" value="/" onclick="change();"></td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			function checktype(obj) {
+				if (confirm("确认点击？")) {
+					alert(obj.tagName);
+				}
+				//console.log(obj.tagName);
+				//console.info(obj.options[obj.options.selectedIndex].value);
+			}
+
+			function change() {
+				//top.location='页面跳转.html';
+				//self.location="页面跳转.html";
+				//window.location.href='页面跳转.html';
+				//history.go(-1);
+				//window.history.back(-1);
+				window.navigate("回调函数.html");
+				//window.open("页面跳转.html");
+			}
+			/*if($("#guo").hasClass("guo")){
+				alert(2);
+			}*/
+		</script>
+	</body>
+
+</html>

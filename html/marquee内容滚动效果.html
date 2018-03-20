@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>内容滚动效果</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--   引入jQuery -->
+<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+	td{width: 100px;}
+</style>
+</head>
+<body>
+<div>
+	<marquee scrollamount="10" direction="down" behavior="scroll" height="200px" bgcolor="blue" onmouseover="this.stop();" onmouseout="this.start()();">
+		<table>
+		<tr>
+			<td>
+				<p>交车时</p>
+			</td>
+			<td align="center" onclick="clickContent('PQ15101000000000111611');">
+				<label style=""><input name="QIDQ5||ROWID1" type="checkbox" value="1" id="PQ15101000000000111611"></label>
+			</td>
+			<td align="center" onclick="clickContent('PQ15101000000000111612');">
+				<label style=""><input name="QIDQ5||ROWID1" type="checkbox" value="2" id="PQ15101000000000111612"></label>
+			</td>
+			<td align="center" onclick="clickContent('PQ15101000000000111613');">
+				<label style=""><input name="QIDQ5||ROWID1" type="checkbox" value="3" id="PQ15101000000000111613"></label>
+			</td>
+			<td align="center" onclick="clickContent('PQ15101000000000111614');">
+				<label style=""><input name="QIDQ5||ROWID1" type="checkbox" value="4" id="PQ15101000000000111614"></label>
+			</td>
+		</tr>
+	</table>
+	</marquee>
+	
+	<div>
+		<p>111</p>
+		<label>222</label>
+		<label>333</label>
+		<label>44</label>
+		<label>55</label>
+		<label>66</label>
+		<label>3373</label>
+		<label>88</label>
+		<label>99</label>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+function clickContent(obj){
+	$("#"+obj).trigger("click");
+	
+}
+//阻止单选框，复选框的冒泡事件，guo
+$("label").click(function(e){
+	e.stopPropagation();
+})
+$("p").siblings("label:eq(4)").css("background","red");
+</script>
+</html>

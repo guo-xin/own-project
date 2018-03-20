@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!--缩放比例1，禁止缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Page-Enter" content="revealTrans(Duration=2.0,Transition=12)">
+		<title>boostrap学习1</title>
+		<link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet"></link>
+		<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div>
+			<!--进度条样式，带栅栏的滚动条process-striped，可以滚动的动画滚动条active-->
+			<div class="progress progress-striped active">
+				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">10% 完成（信息）
+					<span class="sr-only">10% 完成（信息）</span>
+				</div>
+				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">20% 完成（信息）
+					<span class="sr-only">20% 完成（信息）</span>
+				</div>
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">10% 完成（信息）
+					<span class="sr-only">10% 完成（信息）</span>
+				</div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">10% 完成（信息）
+					<span class="sr-only">10% 完成（信息）</span>
+				</div>
+				<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">20% 完成（信息）
+					<span class="sr-only">20% 完成（信息）</span>
+				</div>
+				<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">10% 完成（信息）
+					<span class="sr-only">10% 完成（信息）</span>
+				</div>
+			</div>
+			<!--固定高度340px，超过出滚动条pre-scrollable-->
+			<div class="pre-scrollable">
+				<form type="form" class="form-horizontal">
+					<div class="checkbox">
+						<label class="checkbox">
+						<input type="checkbox" />1
+						</label>
+						<label class="checkbox">
+							<input type="checkbox" />2
+						</label>
+					</div>
+					<div class="checkbox">
+						<label class="radio-inline">
+							<input type="radio" name="sex" />4
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="sex" /> 5
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="sex"/ >6
+						</label>
+					</div>
+					<div class="form-group">
+						<select class="form-control" size="1">
+							<option style="display: none;">	</option>
+							<option>苹果</option>
+							<option>香蕉</option>
+							<option>梨子</option>
+							<option>草莓</option>
+							<option>西瓜</option>
+						</select>
+					</div>
+					<div>
+						<!--多选属性,multiple-->
+						<select multiple class="form-control">
+							<option>苹果</option>
+							<option>香蕉</option>
+							<option>梨子</option>
+							<option>草莓</option>
+							<option>西瓜</option>
+						</select>
+					</div>
+				</form>
+				<!--一行显示多个标签,form-inline-->
+				<form type="form" class="form-inline">
+					<fieldset disabled>
+						<div class="col-xs-3">
+							<label class="sr-only">姓名:</label>
+							<input type="name" class="form-control input-sm" placeholder="请输入姓名" />
+						</div>
+						<div class="col-xs-3">
+							<label class="sr-only">密码:</label>
+							<input type="password" class="form-control" placeholder="请输入密码" />
+						</div>
+						<div class="col-xs-3">
+							<label class="checkbox-inline">
+							<input type="checkbox"/>记住密码
+						</label>
+						</div>
+						<div class="col-xs-3">
+							<!--a标签禁用有问题-->
+							<a role="button" class="btn btn-primary btn-sm">记住密码</a>
+						</div>
+					</fieldset>
+				</form>
+				<!--一行显示form-horizontal-->
+				<form type="form" class="form-horizontal">
+					<div class="form-group form-group-lg">
+						<label class="col-xs-2 control-label">姓名</label>
+						<div class="col-xs-8">
+							<p class="input-lg form-control-static">静态标签</p>
+						</div>
+					</div>
+					<div class="form-group form-group-lg">
+						<label class="col-xs-2 control-label">密码</label>
+						<div class="col-xs-8">
+							<input type="password" class="form-control" placeholder="请输入密码" />
+						</div>
+					</div>
+					<div class="col-xs-offset-2 col-xs-10">
+						<div class="checkbox">
+							<label>
+							<input type="checkbox"/>记住密码
+						</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="pre-scrollable">
+				<code>针对单个单词</code>
+				<pre>针对多行            块儿元素</pre> 键盘输入的内容
+				<kbd>ctrl+c</kbd>
+				<h1>响应式表格</h1>
+				<!--table基础表格样式,table-bordered带边框的表格,table-responsive响应式表格,
+			table-hover鼠标悬浮高亮,table-striped斑马线,奇偶行颜色不一样,table-condensed紧凑型表格-->
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover table-striped">
+						<thead>
+							<tr class="info">
+								<th>Button</th>
+								<th>Class</th>
+								<th>内容</th>
+								<th>表格标题</th>
+								<th>表格标题</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="active">
+								<td><button class="btn btn-lg">default</button></td>
+								<td><code>btn btn-lg</code></td>
+								<td>默认样式</td>
+								<td>表格单元格</td>
+								<td>表格单元格</td>
+							</tr>
+							<tr class="danger">
+								<td><button class="btn btn-primary btn-sm">primary</button></td>
+								<td><code>btn btn-primary btn-sm</code></td>
+								<td>强调样式</td>
+								<td>表格单元格</td>
+								<td>表格单元格</td>
+							</tr>
+							<tr class="warning">
+								<td><button class="btn btn-danger col-xs-8">danger</button></td>
+								<td><code>btn btn-danger col-xs-8</code></td>
+								<td>危险样式</td>
+								<td>表格单元格</td>
+								<td>表格单元格</td>
+							</tr>
+							<tr class="success">
+								<td><button class="btn btn-warning btn-block">warning</button></td>
+								<td><code>btn btn-warning btn-block</code></td>
+								<td>警告</td>
+								<td>表格单元格</td>
+								<td>表格单元格</td>
+							</tr>
+							<tr class="script">
+								<td><button class="btn btn-info">info</button></td>
+								<td><code>btn btn-info</code></td>
+								<td>通知样式</td>
+								<td>表格单元格</td>
+								<td>表格单元格</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!--li去掉list-style样式-->
+			<ul class="list-unstyled">
+				<li>ul的li去掉list-style样式</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<!--ul的li去掉list-style样式,水平显示-->
+			<p>城市</p>
+			<ul class="list-inline text-danger">
+				<li>北京</li>
+				<li>上海</li>
+				<li>天津</li>
+				<li>武汉</li>
+			</ul>
+			<ol class="list-unstyled text-info">
+				<li>ol的li去掉list-style样式,字体颜色类</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ol>
+			<ol class="breadcrumb">
+				<li><a>ol的li去掉list-style样式,用/分隔</a></li>
+				<li><a>2222</a></li>
+				<li><a>3333</a></li>
+				<li><a>4444</a></li>
+			</ol>
+			<!--dl水平显示，字数过多显示省略号-->
+			<dl class="dl-horizontal">
+				<dt><i>dl水平显示，字数过多显示省略号</i></dt>
+				<dt>可以连续写多个</dt>
+				<dd>2</dd>
+				<dt>3</dt>
+				<dd><em>倾斜显示标签</em></dd>
+			</dl>
+			<a class="btn btn-primary btn-block" role="button" href="boostrap学习2.html" data-transition="slide">btn-block整行按钮</a>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					dataType: 'script', //发送数据格式
+					type: 'get',
+					//http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=4&city=%E5%8C%97%E4%BA%AC&dfc=3
+					url: 'http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city=&dfc=3&charset=utf-8', //直接发向这个地址
+					success: function() {
+						console.log(window.SWther);
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

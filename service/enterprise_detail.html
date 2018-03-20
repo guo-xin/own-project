@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新建服务模板</title>
+		<link href="css/public.css" type="text/css" rel="stylesheet" />
+		<link href="css/backstage.css" type="text/css" rel="stylesheet" />
+		<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+		<link href="css/service.css" type="text/css" rel="stylesheet" />
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.min.js" type="text/javascript"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+		<link href="css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet" />
+		<script src="js/public.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div class="s20"></div>
+		<div class="search-management">
+			<div class="invitation fl_left">返回用户明细  < 服务详情：</div>
+			</div>
+			<div class="s10" style="clear:both;"></div>
+			<form action="/doctor/listAll" method="post">
+				<div class="all-password">
+					<div class="business">
+						<div class="form-group">
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">用户ID：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">服务ID：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">服务类型：</label>
+								<div class="w-auto t-left fl_left">
+									<label>自购/企业</label>
+								</div>
+							</div>
+						</div>
+						<div class="s10"></div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">用户ID：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">服务ID：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+
+						</div>
+						<div class="s10"></div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">用户ID：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">服务ID：</label>
+								<div class="w-auto t-left fl_left">
+									<label>XXXXXXXX</label>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="businessr-export" style="clear:both;">
+					<div class="business">
+						<div class="export fl_left">17个结果&nbsp;&nbsp;&nbsp;&nbsp;每页20条</div>
+					</div>
+				</div>
+		</div>
+		</form>
+		<div class="alldoctors">
+			<table width="100%" border="0" style="clear:both; margin:0 auto;height: auto;">
+				<tbody>
+					<tr style="border:none;">
+						<th width="100">编号
+							<div class="sort" title="点击排序" onclick="sortDepartment('id');">
+	                        	<img src="images/arrow.png">
+							</div>
+						</th>
+						<th width="3"><img src="images/vertical.png"></th>
+						<th width="140">姓名</th>
+						<th width="3"><img src="images/vertical.png"></th>
+						<th width="160">科室
+							<div class="sort" title="点击排序" onclick="sortDepartment('department');">
+		                        	<img src="images/arrow.png">
+							</div>
+						</th>
+						<th width="3"><img src="images/vertical.png"></th>
+						<th width="160">所属医院
+							<div class="sort" title="点击排序" onclick="sortDepartment('hospitalId');">
+	                        	<img src="images/arrow.png">
+							</div>
+						</th>
+						<th width="3"><img src="images/vertical.png"></th>
+						<th width="160">联系电话</th>
+						<th width="3"><img src="images/vertical.png"></th>
+						<th width="90">邀请码</th>
+						<th width="3"><img src="images/vertical.png"></th>
+						<th width="390">操作</th>
+					</tr>
+				</tbody>
+			</table>
+			<div id="center-stroll" style="width:100%; height:540px;">
+				<table id="datagrid" width="100%" height="200" border="0" style="clear:both; margin:0 auto;height: auto;">
+					<tbody>
+						<tr bg="#e8eef3">
+							<td width="100" height="27" style="background-color: rgb(232, 238, 243);">7</td>
+							<td width="3" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="140" style="background-color: rgb(232, 238, 243);">丁一</td>
+							<td width="3" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="160" style="background-color: rgb(232, 238, 243);">内科</td>
+							<td width="3" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="160" style="background-color: rgb(232, 238, 243);">览海在线医疗组</td>
+							<td width="3" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="160" style="background-color: rgb(232, 238, 243);">13145489543</td>
+							<td width="3" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="90" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="3" style="background-color: rgb(232, 238, 243);"></td>
+							<td width="390" style="background-color: rgb(232, 238, 243);">
+								<div class="search-other fr_right">
+									<button class="border-r4 search-uses fr_right f_show" target="#start-in" fun_method="start_card('7','丁一')">启用帐号</button>
+									<button class="border-r4 search-uses fr_right f_show" target="#rest-password" fun_method="res_pass('7','丁一')">重置密码</button>
+									<div class="border-r4 search-uses fr_right"><a href="/doctor/edit?id=7">修改信息</a></div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="search-bb">
+				<!-- 分页页面引入 -->
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+				<title>Insert title here</title>
+				<div class="search-page">
+					<button class="page-leftan" id="firstpage" onclick="javascript:goPage(1);" disabled=""></button>
+					<!-- 首页 -->
+					<div class="page" id="pagenumber">
+						<ul>
+							<li class="border-r4 pitchon" id="pagenumber" onclick="javascript:goPage(1);">1</li>
+						</ul>
+					</div>
+					<button class="page-rightan" id="lastpage" onclick="javascript:lastPage();" disabled="disabled"></button>
+					<!-- 尾页 -->
+				</div>
+			</div>
+			<div class="all-password">
+					<div class="business">
+						<div class="form-group">
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">汇总：</label>
+							</div>
+						</div>
+						<div class="s10"></div>
+						<div class="form-group">
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">共问诊：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<label class="w-auto t-left fl_left">总计可问诊：</label>
+								<div class="w-auto t-left fl_left">
+									<label>【XXXXXXXXXXX】</label>
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="w-auto t-left fl_left">
+									<input type="reset" class="border-r4 temporary" value="停用该包">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="s20"></div>
+		</div>
+	</body>
+</html>

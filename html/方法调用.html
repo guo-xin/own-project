@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>eee</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--   引入jQuery -->
+<script src="../js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<style type="text/css">
+	.over{
+		background: red;
+	}
+</style>
+<script language="javascript" >
+	$(function(){// dom元素加载完毕
+		$(":button").bind("mouseover mouseout", function(event){
+			$(this).css("background-color","red");
+			alert(this.nodeName)
+			});
+	function handler(event) {
+		alert(event.data.foo);
+		}
+		$("input").bind("click", {foo: "bar"}, handler);
+		
+		$("#foo").bind({
+		  click: function(){
+		    $(this).addClass("over");
+		  },
+		  mouseenter: function(){
+		    $(this).addClass("over1");
+		  },
+		  mouseleave: function(){
+		    $(this).removeClass("over1");
+		  }
+		});
+	})
+</script>
+</head>
+<body>
+<input type="button" value="1" id="foo"/>
+<input type="button" value="2" id="bar"/>
+<input type="checkbox" value="3" name="check" checked/>
+<input type="button" value="测试选中的个数" id="btn"/>
+</body>
+</html>

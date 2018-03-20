@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!--缩放比例1，禁止缩放-->
+		<meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>新浪天气</title>
+		<script src="..js/jquery-1.9.1.min.js" type="text/javascript"></script>
+
+	</head>
+	<body>
+		<div class="form-group"></div>
+		<script type="text/javascript">
+			$(function() {
+				/*城市*/
+				var city = "北京";
+				/*获取天气天数,2表示获取3天的天气*/
+				var day = 4;
+				$.ajax({
+					dataType: 'script', //发送数据格式
+					type: 'get',
+					//http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=4&city=%E5%8C%97%E4%BA%AC&dfc=3
+					url: 'http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day='+day+'&city='+city+'&dfc=3&charset=utf-8', //直接发向这个地址
+					success: function() {
+						console.log(window.SWther);
+						var html = "";
+						var time = window.SWther.add.now.split(" ")[0];
+						html +="今天："+time+"<br />";
+						for(var i = 0;i <window.SWther.w[city].length;i++){
+							html +=city+"&nbsp&nbsp"+window.SWther.w[city][i].s1+"&nbsp&nbsp"+window.SWther.w[city][i].d1+":"+window.SWther.w[city][i].p1+"&nbsp&nbsp最高温度："+window.SWther.w[city][i].t1+"℃&nbsp&nbsp最低温度："+window.SWther.w[city][i].t2+"℃<br />";
+						}
+						$(".form-group").append(html);
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

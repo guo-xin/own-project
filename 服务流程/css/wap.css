@@ -1,0 +1,120 @@
+body {
+	font-size: 14px;
+	text-decoration: none;
+	font-family: "微软雅黑";
+	text-align: center;
+}
+a:hover,a:link,a:focus {
+	border: none;
+	outline: none;
+	text-decoration: none;
+}
+ul,ol,li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+.clear{
+	clear: both;
+}
+.s10 {
+	height: 1px;
+	clear: both;
+}
+.ul-list{
+	color: #999;
+	padding-right: 8px;
+}
+h2 {
+	font-size: 21px;
+	margin: 50px 0px 8px;
+	color: #46C9F1;
+}
+h3{
+	font-size: 15px;
+	color: #666;
+	text-align: left;
+	text-indent: 2em;
+	margin: 0 30px;
+	line-height: 1.5;
+}
+h4{
+	font-size: 15px;
+	text-align: left;
+	line-height: 1.5;
+	color: #333;
+	margin-top: 0px;
+}
+.bg{
+	margin: 0px 20px;
+}
+.col-xs-6,.col-xs-4{
+	padding: 0px;
+}
+.decoration{
+	margin-bottom: 22px;
+}
+/*上部图片区域*/
+
+.slider img {
+	width: 100%;
+}
+/*我有医生介绍*/
+/*如何使用我有医生*/
+#use-doctor ul,#use-doctor li{
+	text-align: left;
+	font-size: 13px;
+	color: #666;
+	line-height: 20px;
+	white-space: nowrap;
+}
+#use-doctor .col-xs-6,#use-doctor .col-xs-4{
+	height: 110px;
+}
+.clear img{
+	width: 50%;
+}
+img.v-align{
+	margin-top: 17px;
+	width: 75px;
+}
+@media only screen and (max-width: 320px){
+#use-doctor ul,#use-doctor li{
+	white-space: initial;
+}
+}
+/*服务优势*/
+#service-strength li{
+	line-height: 32px;
+	height: 32px;
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+.bg-blue{
+	background:#5DCFF1;
+	color: #fff;
+}
+.bg-gray{
+	background:#f4f4f4;
+	color: #999;
+}
+
+/*服务卡服务*/
+#service-card h5{
+	font-size:15px;
+	color:#999;
+	line-height:25px;
+	text-align: left;
+	padding-left: 15px;
+	margin-bottom: 20px;
+}
+
+/*底部图片*/
+.bottom img{
+	width: 100%;
+}
+
